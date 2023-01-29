@@ -74,6 +74,10 @@ class AppStrings {
   ///Onboarding
   static const String Rs = "Rs";
   static const String off = "off";
+  static const String Standard = "Standard";
+  static const String Ieateverything = "I eat everything";
+  // static const String Vegetarian = "Vegetarian";
+  static const String Vegan = "Vegan";
   static const String month = "month";
   static const String Beginner = "Beginner";
   static const String advanced = "Advanced";
@@ -86,29 +90,43 @@ class AppStrings {
   static const String getFitToned = "Get fit & toned";
   static const String whatsyourgoal = "What's your goal?";
   static const String yourFirst7DaysareFree = "Your first 7 days are free.";
+///onboarding3
+  static const String Sedentary = "Sedentary";
+  static const String Veryactive = "Very active";
+  static const String LightlyActive = "Lightly Active";
+  static const String Extremelyactive = "Extremely active";
+  static const String ModeratelyActive = "Moderately Active";
+  static const String egDeskJob = "e.g. desk job, and little formal exercise";
+  static const String egAthleteIn = "e.g. athlete in endurance training or very hard physical job";
+  static const String egDlightdaily = "e.g. light daily activity and light exercise 1-3 days a week";
+  static const String egmoderatedaily = "e.g. moderate daily activity & moderate/hard exercise 4-5 days a week";
+  static const String egphysicallydemanding = "e.g. physically demanding lifestyle & hard exercise 6-7 days a week";
+  
+
+
   static const String eatTrainOptimumHealth =
       "Eat and train for optimum health";
   static const String buildYourStrengthMuscles =
       "Build your strength and muscles";
   static const String getLeanerImproveFitness =
       "Get Leaner and improve your fitness";
-  static const String whatYourCurrentFitnessLevel =
-      "What's your current fitness level?";
-  static const String iCurrentlyTrain24timesAWeek =
-      "I currently train 2 - 4 times a week";
-  static const String IcurrentlyTrain57TimesAweek =
-      "I currently train 5 - 7 times a week";
-  static const String ICurrentlyTrain01TimesAweek =
-      "I currently train 0 - 1 times a week";
-  static const String whichMealplanYouWantToFollow =
-      "Which meal plan do you want to follow?";
+  // static const String whatYourCurrentFitnessLevel =
+  //     "What's your current fitness level?";
+  // static const String iCurrentlyTrain24timesAWeek =
+  //     "I currently train 2 - 4 times a week";
+  // static const String IcurrentlyTrain57TimesAweek =
+  //     "I currently train 5 - 7 times a week";
+  // static const String ICurrentlyTrain01TimesAweek =
+  //     "I currently train 0 - 1 times a week";
+  // static const String whichMealplanYouWantToFollow =
+  //     "Which meal plan do you want to follow?";
   static const String Regular = "Regular";
   static const String MeatVegSeafoodTheLot = "Meat, veg, seafood, the lot.";
   static const String Pescatarian = "Pescatarian";
   static const String Vegetarian = "Vegetarian";
   static const String HoldTheMeatSeafoodPlease =
       "Hold the meat and seafood please.";
-  static const String Vegan = "Vegan";
+  // static const String Vegan = "Vegan";
   static const String NoAnimalProductsAtallThanks =
       "No animal products at all, thanks";
   static const String noChangeUntilYour7DayTrail =

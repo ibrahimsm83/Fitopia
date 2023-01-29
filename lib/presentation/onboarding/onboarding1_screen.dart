@@ -1,5 +1,6 @@
 import 'package:fitopia/model/onboarding_model.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/presentation/onboarding/multiselect_widget.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
@@ -14,73 +15,73 @@ class Onboarding1View extends StatefulWidget {
 }
 
 class _Onboarding1ViewState extends State<Onboarding1View> {
+List<onBoradingModel>? selectedList;
 
   int selectedIndex = 0;
- List<onBoradingModel>? _chellengesList = [
-    onBoradingModel(
-        title: AppStrings.loseWeight,
-        description: AppStrings.getLeanerImproveFitness),
-    onBoradingModel(
-        title: AppStrings.Leanbulk,
-        description: AppStrings.buildYourStrengthMuscles),
-    onBoradingModel(
-        title: AppStrings.Gainweight,
-        description: AppStrings.eatTrainOptimumHealth),
-  ];
+  int currentPage=0;
+
+List<bool> isStatusBarActive=[true,false,false,false];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SafeArea(
-        child: Column(
+        child: Stack(
+          alignment: Alignment.topCenter,
           children: [
-            SizedBox(height: 20.vs),
-            statusBar(),
-            //loginImage
-            SizedBox(height: AppSize.s28.vs),
-            SvgPicture.asset(
-              ImageAssets.onboarding1,
+          //SizedBox(height: 20.vs),
+            Align(
+              alignment: Alignment.topCenter,
+              //padding: EdgeInsets.only(top: 20),
+              child: statusBar()),
+            //SizedBox(height: AppSize.s28.vs),
+            Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: SvgPicture.asset(
+                ImageAssets.onboarding1,
+              ),
             ),
-            SizedBox(height: AppSize.s28.vs),
-            Text(
-              AppStrings.whatsyourgoal,
-              style: getboldStyle(
-                  color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
+           // SizedBox(height: AppSize.s28.vs),
+            Padding(
+              padding: const EdgeInsets.only(top: 300),
+              child: Text(
+                AppStrings.whatsyourgoal,
+                style: getboldStyle(
+                    color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
+              ),
             ),
-            SizedBox(height: AppSize.s28.vs),
-            // customeCheckBoxButton(),
-            // customeCheckBoxButton(),
-            // customeCheckBoxButton1(),
-            FixedTogglesButtonsList(
-              selected: selectedIndex,
-              callback: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                });
-                //pageController.jumpToPage(index);
-              },
-              name: _chellengesList,
+           // SizedBox(height: AppSize.s28.vs),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 350),
+              child: SizedBox(child:
+         currentPage==0?  onboarding1Widget() :currentPage==1?
+           onboarding2Widget(DietryRequirmentList):onboarding3Widget(HowActiveAreYouList),),
             ),
-            Spacer(),
-            // CustomRadioButton(
-            //   horizontal: true,
-            //   unSelectedColor: ColorManager.greyBorderColor,
-            //   buttonLables: ['Student', 'Parent', 'Teacher', 'hgfh', 'jhgiugx'],
-            //   buttonValues: ["STUDENT", "PARENT", "TEACHER", 'hgfh', 'jhgiugx'],
-            //   defaultSelected: "STUDENT",
-            //   radioButtonValue: (value) {
-            //     print(value);
-            //   },
-            //   selectedColor: ColorManager.secondry,
-            // ),
-            button(
-                text: AppStrings.next,
-                color: ColorManager.primary,
-                onTap: () {
-                  Navigator.pushReplacementNamed(
-                      context, Routes.Onboarding1Route);
-                }),
+           // currentPage == 1 ?  Spacer():SizedBox(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: button(
+                  text: AppStrings.next,
+                  color: ColorManager.primary,
+                  onTap: () {
+                    setState(() {
+                     
+                      if(currentPage==0){
+                         isStatusBarActive[1]=true;
+                        currentPage=1;
+                      }else if(currentPage==1){
+                         isStatusBarActive[2]=true;
+            
+                        currentPage=2;
+                      }
+                    });
+                    // Navigator.pushReplacementNamed(
+                    //     context, Routes.Onboarding1Route);
+                  }),
+            ),
             SizedBox(height: AppSize.s28.vs),
           ],
         ),
@@ -102,60 +103,56 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           onTap: onTap),
     );
   }
+Widget onboarding2Widget(List<onBoradingModel>? itemList){
+  return  FixedTogglesButtonsList(
+              selected: selectedIndex,
+              callback: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              name: itemList,
+            );
+}
 
-  Widget customeCheckBoxButton() {
+Widget onboarding3Widget(List<onBoradingModel>? itemList){
+  return  FixedTogglesButtonsList(
+              selected: selectedIndex,
+              callback: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              name: itemList,
+            );
+}
+  Widget onboarding1Widget(){
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListTile(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(15))),
-          tileColor: ColorManager.secondry,
-          leading: CircleAvatar(
-            backgroundColor: ColorManager.greyBorderColor,
-          ),
-          title: Text(
-            AppStrings.loseWeight,
-            style: getboldStyle(color: ColorManager.whiteColor),
-          ),
-          subtitle: Text(
-            AppStrings.getLeanerImproveFitness,
-            style: getboldStyle(color: ColorManager.whiteColor),
-          )),
-    );
-  }
-
-  Widget customeCheckBoxButton1() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListTile(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(15))),
-          tileColor: ColorManager.greyBorderColor,
-          leading: CircleAvatar(
-            backgroundColor: ColorManager.secondry,
-          ),
-          title: Text(
-            AppStrings.loseWeight,
-            style: getboldStyle(color: ColorManager.blackColor),
-          ),
-          subtitle: Text(
-            AppStrings.getLeanerImproveFitness,
-            style: getboldStyle(color: ColorManager.blackColor),
-          )),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: ListView.builder(
+                itemCount: goalList!.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return GridItem(
+                      item: goalList![index],
+                      isSelected: (bool value) {
+                        setState(() {
+                          if (value) {
+                            selectedList?.add(goalList![index]);
+                          } else {
+                            selectedList?.remove(goalList![index]);
+                          }
+                        });
+                        print("$index : $value");
+                      },
+                      key: Key(goalList![index].id.toString()));
+                }),
     );
   }
 
   Widget statusBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
       child: Row(
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -175,7 +172,7 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-                color: ColorManager.greyColor,
+                color:isStatusBarActive[1]?ColorManager.primary: ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
