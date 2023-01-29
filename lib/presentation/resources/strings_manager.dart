@@ -101,7 +101,11 @@ class AppStrings {
   static const String egDlightdaily = "e.g. light daily activity and light exercise 1-3 days a week";
   static const String egmoderatedaily = "e.g. moderate daily activity & moderate/hard exercise 4-5 days a week";
   static const String egphysicallydemanding = "e.g. physically demanding lifestyle & hard exercise 6-7 days a week";
-  
+  ///onboarding4
+  static const String male = "Male";
+  static const String female = "Female";
+  static const String WhatGenderdoyouidentifyas = "What gender do you identify as?";
+  static const String ThiswillBeUsedToCalculateThe = "This will be used to calculate the right lebel of nutrients for your meal plan";
 
 
   static const String eatTrainOptimumHealth =

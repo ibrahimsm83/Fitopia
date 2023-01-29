@@ -68,13 +68,11 @@ List<bool> isStatusBarActive=[true,false,false,false];
                   color: ColorManager.primary,
                   onTap: () {
                     setState(() {
-                     
                       if(currentPage==0){
                          isStatusBarActive[1]=true;
                         currentPage=1;
                       }else if(currentPage==1){
                          isStatusBarActive[2]=true;
-            
                         currentPage=2;
                       }
                     });
