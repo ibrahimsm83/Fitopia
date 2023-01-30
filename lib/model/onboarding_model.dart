@@ -71,3 +71,29 @@ List<onBoradingModel>? HowActiveAreYouList = [
         description: AppStrings.egAthleteIn
         ),
   ];
+
+  ///MaleFemale
+  List<onBoradingModel>? genderList = [
+    onBoradingModel(
+      id: 0,
+        title: AppStrings.male,
+       ),
+    onBoradingModel(
+      id: 1,
+        title: AppStrings.female,
+      ),
+  
+  ];
+
+  class onboardingImageTitle{
+    String? imagePath;
+    String? title;
+    onboardingImageTitle(this.imagePath,this.title);
+  }
+
+  List<onboardingImageTitle> OnboardingImgTitle=[
+    onboardingImageTitle( ImageAssets.onboarding1,AppStrings.whatsyourgoal),
+    onboardingImageTitle( ImageAssets.onboarding2,AppStrings.WhatAreYourDietaryrequirements),
+    onboardingImageTitle( ImageAssets.onboarding3,AppStrings.Howactiveareyou),
+    onboardingImageTitle( ImageAssets.onboarding4,AppStrings.WhatGenderdoYouidentityAs),
+  ];

@@ -104,8 +104,13 @@ class AppStrings {
   ///onboarding4
   static const String male = "Male";
   static const String female = "Female";
+static const String Howactiveareyou = "How active are you?";
   static const String WhatGenderdoyouidentifyas = "What gender do you identify as?";
   static const String ThiswillBeUsedToCalculateThe = "This will be used to calculate the right lebel of nutrients for your meal plan";
+static const String WhatAreYourDietaryrequirements = "What are your dietary requirements?";
+static const String WhatGenderdoYouidentityAs = "What gender do you identify as?";
+static const String ThiswillUsedToCalculateMealplan = "This will be used to calculate the right lebel of nutrients for your meal plan";
+
 
 
   static const String eatTrainOptimumHealth =

@@ -14,7 +14,7 @@ class ImageAssets {
  static const String onboarding1 = "$ICON_PATH/onboarding1.svg";
  static const String onboarding2 = "$ICON_PATH/onboarding2.svg";
  static const String onboarding3 = "$ICON_PATH/onboarding3.svg";
- static const String onboarding4 = "$ICON_PATH/onboarding4.svg";
+ static const String onboarding4 = "$ICON_PATH/onboarding5.svg";
 //images
   //------------------Background Image---------------------------
   static const String backgroundImage = "$IMAGE_PATH/backgroundImage.png";

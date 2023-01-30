@@ -1,6 +1,6 @@
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:flutter/material.dart';
-import '../../model/onboarding_model.dart';
+import '../model/onboarding_model.dart';
 
 class GridItem extends StatefulWidget {
   final Key? key;

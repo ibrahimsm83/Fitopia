@@ -1,6 +1,6 @@
 import 'package:fitopia/model/onboarding_model.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
-import 'package:fitopia/presentation/onboarding/multiselect_widget.dart';
+import 'package:fitopia/widgets/multiselect_widget.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
@@ -40,33 +40,37 @@ List<bool> isStatusBarActive=[true,false,false,false];
             Padding(
               padding: const EdgeInsets.only(top: 40),
               child: SvgPicture.asset(
-                ImageAssets.onboarding1,
+              currentPage==0?  OnboardingImgTitle[0].imagePath! :currentPage==1?
+         OnboardingImgTitle[1].imagePath!:currentPage==2? OnboardingImgTitle[2].imagePath!:OnboardingImgTitle[3].imagePath!,
               ),
             ),
-           // SizedBox(height: AppSize.s28.vs),
+           
             Padding(
-              padding: const EdgeInsets.only(top: 300),
+              padding: const EdgeInsets.only(top: 310),
               child: Text(
-                AppStrings.whatsyourgoal,
+                // AppStrings.whatsyourgoal,
+                 currentPage==0?  OnboardingImgTitle[0].title! :currentPage==1?
+         OnboardingImgTitle[1].title!:currentPage==2? OnboardingImgTitle[2].title!:OnboardingImgTitle[3].title!,
                 style: getboldStyle(
                     color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
               ),
             ),
-           // SizedBox(height: AppSize.s28.vs),
+         
 
             Padding(
               padding: const EdgeInsets.only(top: 350),
               child: SizedBox(child:
          currentPage==0?  onboarding1Widget() :currentPage==1?
-           onboarding2Widget(DietryRequirmentList):onboarding3Widget(HowActiveAreYouList),),
+           onboarding2Widget(DietryRequirmentList):currentPage==2? onboarding3Widget(HowActiveAreYouList):onboarding4Widget(genderList)),
             ),
-           // currentPage == 1 ?  Spacer():SizedBox(),
+          
             Align(
               alignment: Alignment.bottomCenter,
               child: button(
                   text: AppStrings.next,
                   color: ColorManager.primary,
                   onTap: () {
+                    print("${currentPage}");
                     setState(() {
                       if(currentPage==0){
                          isStatusBarActive[1]=true;
@@ -74,6 +78,16 @@ List<bool> isStatusBarActive=[true,false,false,false];
                       }else if(currentPage==1){
                          isStatusBarActive[2]=true;
                         currentPage=2;
+                      }else if(currentPage==2){
+                         isStatusBarActive[3]=true;
+                        currentPage=3;
+                      }else {
+                        currentPage=0;
+                         isStatusBarActive[0]=true;
+                         isStatusBarActive[1]=false;
+                         isStatusBarActive[2]=false;
+                         isStatusBarActive[3]=false;
+
                       }
                     });
                     // Navigator.pushReplacementNamed(
@@ -181,7 +195,7 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-                color: ColorManager.greyColor,
+               color:isStatusBarActive[2]?ColorManager.primary: ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
@@ -192,7 +206,7 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-                color: ColorManager.greyColor,
+               color:isStatusBarActive[3]?ColorManager.primary: ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
@@ -213,4 +227,17 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
     //   ),
     // );
   }
+
+Widget onboarding4Widget(List<onBoradingModel>? itemList){
+  return  FixedTogglesButtonsList(
+              selected: selectedIndex,
+              callback: (int index) {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              name: itemList,
+            );
+}
+
 }

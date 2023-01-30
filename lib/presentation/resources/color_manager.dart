@@ -6,6 +6,7 @@ class ColorManager {
   static Color greyBorderColor = HexColor.fromHex("#C5C5C5");
   static Color greylightColor = HexColor.fromHex("#F5F5F5");
   static Color avatarColor = HexColor.fromHex("#37CFF0");
+  static Color subtitleColor = HexColor.fromHex("#454545");
 
 //------------------------------------darkThemeColor---------
 

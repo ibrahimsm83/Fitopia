@@ -29,10 +29,6 @@ class FixedTogglesButtonsList extends StatelessWidget {
                  padding: const EdgeInsets.all(8.0),
                  child: Container(
                    height: 70,
-                   // margin: EdgeInsets.only(
-                   //     left: 3.0, right: 3.0, top: 10, bottom: 10),
-                   // padding: const EdgeInsets.symmetric(
-                   //     horizontal: 10.0, vertical: 3.0),
                    decoration: BoxDecoration(
                      color: selected == index
                          ? ColorManager.secondry
@@ -47,7 +43,7 @@ class FixedTogglesButtonsList extends StatelessWidget {
                                topRight: Radius.circular(15),
                                bottomRight: Radius.circular(15),
                                bottomLeft: Radius.circular(15))),
-                       //tileColor: ColorManager.secondry,
+                      
                        leading: CircleAvatar(
                          backgroundColor: ColorManager.avatarColor,
                        ),
@@ -60,10 +56,10 @@ class FixedTogglesButtonsList extends StatelessWidget {
                        ),
                        subtitle: Text(
                          name![index].description??"",
-                         style: getboldStyle(
+                         style: getRegularStyle(
                              color: selected == index
                                  ? ColorManager.whiteColor
-                                 : ColorManager.blackColor),
+                                 : ColorManager.subtitleColor),
                        )),
 
              
