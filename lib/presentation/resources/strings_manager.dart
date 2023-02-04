@@ -102,11 +102,11 @@ class AppStrings {
   static const String egmoderatedaily = "e.g. moderate daily activity & moderate/hard exercise 4-5 days a week";
   static const String egphysicallydemanding = "e.g. physically demanding lifestyle & hard exercise 6-7 days a week";
   ///onboarding4
-  static const String male = "Male";
-  static const String female = "Female";
+static const String male = "Male";
+static const String female = "Female";
 static const String Howactiveareyou = "How active are you?";
-  static const String WhatGenderdoyouidentifyas = "What gender do you identify as?";
-  static const String ThiswillBeUsedToCalculateThe = "This will be used to calculate the right lebel of nutrients for your meal plan";
+static const String WhatGenderdoyouidentifyas = "What gender do you identify as?";
+static const String ThiswillBeUsedToCalculateThe = "This will be used to calculate the right lebel of nutrients for your meal plan";
 static const String WhatAreYourDietaryrequirements = "What are your dietary requirements?";
 static const String WhatGenderdoYouidentityAs = "What gender do you identify as?";
 static const String ThiswillUsedToCalculateMealplan = "This will be used to calculate the right lebel of nutrients for your meal plan";
@@ -129,15 +129,15 @@ static const String ThiswillUsedToCalculateMealplan = "This will be used to calc
   //     "I currently train 0 - 1 times a week";
   // static const String whichMealplanYouWantToFollow =
   //     "Which meal plan do you want to follow?";
-  static const String Regular = "Regular";
-  static const String MeatVegSeafoodTheLot = "Meat, veg, seafood, the lot.";
-  static const String Pescatarian = "Pescatarian";
+  // static const String Regular = "Regular";
+  // static const String MeatVegSeafoodTheLot = "Meat, veg, seafood, the lot.";
+  // static const String Pescatarian = "Pescatarian";
   static const String Vegetarian = "Vegetarian";
-  static const String HoldTheMeatSeafoodPlease =
-      "Hold the meat and seafood please.";
-  // static const String Vegan = "Vegan";
-  static const String NoAnimalProductsAtallThanks =
-      "No animal products at all, thanks";
-  static const String noChangeUntilYour7DayTrail =
-      "No charge until your 7-day trial ends cancel anytime.";
+  // static const String HoldTheMeatSeafoodPlease =
+  //     "Hold the meat and seafood please.";
+  // // static const String Vegan = "Vegan";
+  // static const String NoAnimalProductsAtallThanks =
+  //     "No animal products at all, thanks";
+  // static const String noChangeUntilYour7DayTrail =
+  //     "No charge until your 7-day trial ends cancel anytime.";
 }

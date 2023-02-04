@@ -1,0 +1,27 @@
+{
+    "English_US":"English (US)",
+    "Language":"Language",
+     "login": "LGOIN",
+     "signUp": "Sign Up",
+     "forgotPassword": "Forgot Password?",
+     "enterYourEmail": "Enter your email",
+     "welcomeToFitopia": "Welcome to Fitopia",
+     "enterYourPassword": "Enter your password",
+     "dontHaveAnAccount": "Don’t Have an Account?",
+     "w4Title" : "Live",
+     "w2Title" : "Train",
+     "w1Title" : "Centre",
+     "w3Title" : "Eat",
+   "start7dayFreeTrail" : "Start 7-Day Free Trail",
+   "w1Description" :
+      "Train, Eat & Live better with Fitopia's team",
+   "w2Description" :
+      "Work out with world-class trainers. HIIT, boxing, pilates, muscle building & more for home or gym",
+   "w3Description" :
+      "Easy, healthy meal plans you'll love. Gluten-free, vegetarian, pescatarian & vegan options.",
+   "w4Description" :
+      "Mindfulness to calm the chaos. Meditations, sleep visualizations & practical tips.",
+   "enterEmailAndPassword" :
+      "Please login with your Email & Password and improve your body with us."
+
+}

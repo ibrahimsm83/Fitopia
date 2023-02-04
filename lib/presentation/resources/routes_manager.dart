@@ -4,7 +4,6 @@ import 'package:fitopia/presentation/forgot/forgot_verify_otp_screen.dart';
 import 'package:fitopia/presentation/introduction/introduction_screen.dart';
 import 'package:fitopia/presentation/login/login_screen.dart';
 import 'package:fitopia/presentation/onboarding/onboarding1_screen.dart';
-import 'package:fitopia/presentation/onboarding/onboarding2_screen.dart';
 import 'package:fitopia/presentation/signup/signup_screen.dart';
 import 'package:fitopia/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';

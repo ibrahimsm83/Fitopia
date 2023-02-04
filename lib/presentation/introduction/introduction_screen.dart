@@ -1,12 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
-import 'package:fitopia/presentation/resources/assets_manager.dart';
-import 'package:fitopia/presentation/resources/color_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
 import 'package:fitopia/widgets/introduction_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../resources/index_manager.dart';
 
 class IntroductionPage extends StatefulWidget {
@@ -20,13 +16,13 @@ class _IntroductionPageState extends State<IntroductionPage> {
   late int selectedPage;
   late final PageController _pageController;
   bool rememberMe = false;
+  
   @override
   void initState() {
     selectedPage = 0;
     _pageController = PageController(initialPage: selectedPage.toInt());
     super.initState();
   }
-
   final pageCount = 4;
   @override
   Widget build(BuildContext context) {
@@ -64,7 +60,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                 ),
               ]),
           Padding(
-            padding: const EdgeInsets.only(bottom: 50),
+            padding: const EdgeInsets.only(bottom: 30),
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Column(
