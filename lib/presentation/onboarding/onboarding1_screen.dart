@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/model/onboarding_model.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/multiselect_widget.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -67,7 +69,7 @@ List<bool> isStatusBarActive=[true,false,false,false];
             Align(
               alignment: Alignment.bottomCenter,
               child: button(
-                  text: AppStrings.next,
+                  text:LocaleKeys.next.tr(),
                   color: ColorManager.primary,
                   onTap: () {
                     print("${currentPage}");

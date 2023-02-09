@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/background_image_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -35,7 +37,8 @@ class _LoginViewState extends State<LoginView> {
                 AppLogoView(),
                 SizedBox(height: AppSize.s20.vs),
                 Text(
-                  AppStrings.welcomeToFitopia,
+                  LocaleKeys.welcomeToFitopia.tr(),
+                  // AppStrings.welcomeToFitopia,
                   style: getboldStyle(
                       color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
                 ),
@@ -48,7 +51,8 @@ class _LoginViewState extends State<LoginView> {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
-                    AppStrings.enterEmailAndPassword,
+                    // AppStrings.enterEmailAndPassword,
+                    LocaleKeys.enterEmailAndPassword.tr(),
                     textAlign: TextAlign.center,
                     style: getmediumStyle(
                         color: ColorManager.greyBorderColor,
@@ -57,7 +61,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: AppSize.s28.vs),
                 CustomeTextFormField(
-                  hintText: AppStrings.enterYourEmail,
+                  hintText: LocaleKeys.enterYourEmail.tr(),
                   // fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
                     //   if (val == null || val.isEmpty) {
@@ -79,7 +83,8 @@ class _LoginViewState extends State<LoginView> {
                             context, Routes.forgotPasswordRoute);
                       },
                       child: Text(
-                        AppStrings.forgotPassword,
+                        LocaleKeys.forgotPassword.tr(),
+                        // AppStrings.forgotPassword,
                         style: getmediumStyle(
                             color: ColorManager.primary,
                             fontSize: AppSize.s12.mv),
@@ -90,7 +95,8 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(height: 2.vs),
                 CustomeTextFormField(
                   obscureText: true,
-                  hintText: AppStrings.enterYourPassword,
+                  hintText: LocaleKeys.enterYourPassword
+                      .tr(), // AppStrings.enterYourPassword,
                   //fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
                     // if (val == null || val.isEmpty) {
@@ -101,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 10.vs),
                 button(
-                    text: AppStrings.login,
+                    text: LocaleKeys.login.tr(), //AppStrings.login,
                     color: ColorManager.primary,
                     onTap: () {
                       Navigator.pushReplacementNamed(
@@ -112,8 +118,9 @@ class _LoginViewState extends State<LoginView> {
                 // SizedBox(height: 1.vs),
                 // SizedBox(height: 4.vs),
                 textspan(
-                  text1: AppStrings.dontHaveAnAccount,
-                  text2: AppStrings.signUp,
+                  text1: LocaleKeys.dontHaveAnAccount
+                      .tr(), //AppStrings.dontHaveAnAccount,
+                  text2: LocaleKeys.signUp.tr(), //AppStrings.signUp,
                   onTap: () {
                     Navigator.pushReplacementNamed(
                         context, Routes.signUp1Route);

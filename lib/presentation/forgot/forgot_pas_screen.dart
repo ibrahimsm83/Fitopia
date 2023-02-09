@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/background_image_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -6,7 +8,7 @@ import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 import '../resources/index_manager.dart';
 
@@ -34,7 +36,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 AppLogoView(),
                 SizedBox(height: AppSize.s20.vs),
                 Text(
-                  AppStrings.forgotyourPassword,
+                  LocaleKeys.forgotyourPassword.tr(),
+                  //AppStrings.forgotyourPassword,
                   style: getboldStyle(
                       color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
                 ),
@@ -50,7 +53,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      AppStrings.forgotPasswordDes,
+                      LocaleKeys.forgotPasswordDes.tr(),
+                      //AppStrings.forgotPasswordDes,
                       textAlign: TextAlign.left,
                       style: getboldStyle(
                           color: ColorManager.greyBorderColor,
@@ -60,7 +64,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 ),
                 SizedBox(height: AppSize.s15.vs),
                 CustomeTextFormField(
-                  hintText: AppStrings.enterYourEmail,
+                  hintText: LocaleKeys.enterYourEmail.tr(),
+                  //AppStrings.enterYourEmail,
                   // fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
                     //   if (val == null || val.isEmpty) {
@@ -72,7 +77,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
                 SizedBox(height: 10.vs),
                 button(
-                  text: AppStrings.SENDCODE,
+                  text: LocaleKeys.SENDCODE.tr(), //AppStrings.SENDCODE,
                   color: ColorManager.primary,
                   onTap: () =>
                       Navigator.pushNamed(context, Routes.OtpVerificationRoute),
@@ -80,8 +85,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 SizedBox(height: 2.vs),
 
                 textspan(
-                  text1: AppStrings.dontHaveAnAccount,
-                  text2: AppStrings.signUp,
+                  text1: LocaleKeys.dontHaveAnAccount
+                      .tr(), //AppStrings.dontHaveAnAccount,
+                  text2: LocaleKeys.signUp.tr(), //AppStrings.signUp,
                   onTap: () => Navigator.pushReplacementNamed(
                       context, Routes.loginRoute),
                 ),

@@ -1,4 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitopia/bloc/theme_bloc.dart';
+import 'package:fitopia/bloc/theme_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../presentation/resources/color_manager.dart';
 import '../presentation/resources/routes_manager.dart';
@@ -22,13 +27,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: ColorManager.primary,
+        statusBarIconBrightness: Brightness.light));
     return ResponsiveSizer(builder: (context, orientation, screenType) {
-      return MaterialApp(
+      return BlocProvider(
+      create: (context) => ChangeThemeBloc(),
+      child: BlocBuilder<ChangeThemeBloc, ChangeThemeState>(
+          builder: (context, state) {
+        return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Fitopia',
         // themeMode: ThemeMode.system,
         // darkTheme: getApplicationTheme(),
         // theme: getApplicationTheme(),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         theme: ThemeData(
             primarySwatch: Colors.blue,
             unselectedWidgetColor: HexColor.fromHex("#D3D3D3")),
@@ -42,6 +57,9 @@ class _MyAppState extends State<MyApp> {
         initialRoute: Routes.splashRoute,
         onGenerateRoute: RouteGenerator.getRoute,
       );
+       
+      }),
+    );
     });
   }
 

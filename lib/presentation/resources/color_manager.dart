@@ -16,7 +16,6 @@ class ColorManager {
   static Color whiteColor = Colors.white;
   static Color greyColor = Colors.grey;
   static const Color blackColor = Colors.black;
-
   //profileGridviewBuildercolor
   static Color topupColor = HexColor.fromHex("#ED2C6F");
 }

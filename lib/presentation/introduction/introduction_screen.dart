@@ -1,5 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/custome_button.dart';
 import 'package:fitopia/widgets/introduction_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +18,14 @@ class _IntroductionPageState extends State<IntroductionPage> {
   late int selectedPage;
   late final PageController _pageController;
   bool rememberMe = false;
-  
+
   @override
   void initState() {
     selectedPage = 0;
     _pageController = PageController(initialPage: selectedPage.toInt());
     super.initState();
   }
+
   final pageCount = 4;
   @override
   Widget build(BuildContext context) {
@@ -40,23 +43,25 @@ class _IntroductionPageState extends State<IntroductionPage> {
               children: [
                 IndroductionPage(
                   imagepath: ImageAssets.w1Image,
-                  title: AppStrings.w1Title,
-                  description: AppStrings.w1Description,
+                  title: LocaleKeys.w1Title.tr(), //AppStrings.w1Title,
+                  description:
+                      LocaleKeys.w1Description.tr(), //AppStrings.w1Description,
                 ),
                 IndroductionPage(
                   imagepath: ImageAssets.w2Image,
-                  title: AppStrings.w2Title,
-                  description: AppStrings.w2Description,
+                  title: LocaleKeys.w2Title.tr(), //AppStrings.w2Title,
+                  description:
+                      LocaleKeys.w2Description.tr(), //AppStrings.w2Description,
                 ),
                 IndroductionPage(
                   imagepath: ImageAssets.w3Image,
-                  title: AppStrings.w3Title,
-                  description: AppStrings.w3Description,
+                  title: LocaleKeys.w3Title.tr(),
+                  description: LocaleKeys.w3Description.tr(),
                 ),
                 IndroductionPage(
                   imagepath: ImageAssets.w4Image,
-                  title: AppStrings.w4Title,
-                  description: AppStrings.w4Description,
+                  title: LocaleKeys.w4Title.tr(),
+                  description: LocaleKeys.w4Description.tr(),
                 ),
               ]),
           Padding(
@@ -77,11 +82,12 @@ class _IntroductionPageState extends State<IntroductionPage> {
                   ),
                   const SizedBox(height: 20.0),
                   button(
-                      text: AppStrings.start7dayFreeTrail,
+                      text: LocaleKeys.start7dayFreeTrail
+                          .tr(), //AppStrings.start7dayFreeTrail,
                       color: ColorManager.primary,
                       onTap: () {
                         Navigator.pushReplacementNamed(
-                            context, Routes.loginRoute);
+                            context, Routes.LanguageSelectPageRoute);
                         //  Navigator.pushReplacement(
                         //       context,
                         //       MaterialPageRoute(

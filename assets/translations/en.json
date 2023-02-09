@@ -3,11 +3,28 @@
     "Language":"Language",
      "login": "LGOIN",
      "signUp": "Sign Up",
+     "arabic": "Arabic",
+     "next": "Next",
      "forgotPassword": "Forgot Password?",
      "enterYourEmail": "Enter your email",
      "welcomeToFitopia": "Welcome to Fitopia",
      "enterYourPassword": "Enter your password",
      "dontHaveAnAccount": "Don’t Have an Account?",
+      "SENDCODE" : "SEND CODE",
+      "forgotyourPassword" : "Forgot your Password?",
+      "forgotPasswordDes" :
+         "Enter your email address and we'll send you a code to reset your password.",
+      "nextC" : "NEXT",
+      "enterCode" : "Enter Code",
+      "resendCode" : "Resend code?",
+      "enter6digitcode" :
+         "Enter the 6 digit code sent to your email",
+      "newPassword" : "New Password",
+      "changePassword" : "CHANGE PASSWORD",
+      "confirmPassword" : "Confirm Password",
+      "enterNewpassword" : "Enter the new password",
+      "typePasswordAgainConfirm" :
+         "Type the password again to confirm",
      "w4Title" : "Live",
      "w2Title" : "Train",
      "w1Title" : "Centre",
@@ -22,6 +39,73 @@
    "w4Description" :
       "Mindfulness to calm the chaos. Meditations, sleep visualizations & practical tips.",
    "enterEmailAndPassword" :
-      "Please login with your Email & Password and improve your body with us."
+      "Please login with your Email & Password and improve your body with us.",
+   "signIn" : "Sign In",
+   "contine" : "CONTINUE",
+   "createAnAccount" : "Create an Account",
+   "whatsYourEmail" : "What's your email?",
+   "alreadyHaveanAccount" : "Already Have an Account?",
+   "sendmeEmailFitopiaTeam" :
+      "Send me emails with updates from ",
+
+
+   "back" : "Back",
+   "enterPassword" : "Enter password",
+   "ChoosePassword" : "Choose a password",
+   "passwordValidation" :
+      "8-30 characters, 1 upper & lowercase & 1 number",
+
+
+   "WhatsYourName" : "What's your name?",
+   "FirstName" : "First name",
+   "LastName" : "Last name",
+   "CREATEACCOUNT" : "CREATE ACCOUNT",
+   "privacyPlicy" :
+      "By creating an account, I accept the Fitopia ",
+
+  
+      
+       "Rs" : "Rs",
+       "off" : "off",
+       "Standard" : "Standard",
+       "Ieateverything" : "I eat everything",
+       "Vegan" : "Vegan",
+       "month" : "month",
+       "Beginner" : "Beginner",
+       "advanced" : "Advanced",
+       "Leanbulk" : "Lean bulk",
+       "Gainweight" : "Gain weight",
+       "monthsRs" : "months Rs",
+       "loseWeight" : "Lose weight",
+       "buildMuscle" : "Build muscle",
+       "Intermediate" : "Intermediate",
+       "getFitToned" : "Get fit & toned",
+       "whatsyourgoal" : "What's your goal?",
+       "yourFirst7DaysareFree" : "Your first 7 days are free.",
+       "Sedentary" : "Sedentary",
+       "Veryactive" : "Very active",
+       "LightlyActive" : "Lightly Active",
+       "Extremelyactive" : "Extremely active",
+       "ModeratelyActive" : "Moderately Active",
+       "egDeskJob" : "e.g. desk job, and little formal exercise",
+       "egAthleteIn" : "e.g. athlete in endurance training or very hard physical job",
+       "egDlightdaily" : "e.g. light daily activity and light exercise 1-3 days a week",
+       "egmoderatedaily" : "e.g. moderate daily activity & moderate/hard exercise 4-5 days a week",
+       "egphysicallydemanding" : "e.g. physically demanding lifestyle & hard exercise 6-7 days a week",
+     "male" : "Male",
+     "female" : "Female",
+     "Howactiveareyou" : "How active are you?",
+     "WhatGenderdoyouidentifyas" : "What gender do you identify as?",
+     "ThiswillBeUsedToCalculateThe" : "This will be used to calculate the right lebel of nutrients for your meal plan",
+     "WhatAreYourDietaryrequirements" : "What are your dietary requirements?",
+     "WhatGenderdoYouidentityAs" : "What gender do you identify as?",
+     "ThiswillUsedToCalculateMealplan" : "This will be used to calculate the right lebel of nutrients for your meal plan",
+       "eatTrainOptimumHealth" :
+          "Eat and train for optimum health",
+       "buildYourStrengthMuscles" :
+          "Build your strength and muscles",
+       "getLeanerImproveFitness" :
+          "Get Leaner and improve your fitness",
+            "Vegetarian" : "Vegetarian"
 
 }

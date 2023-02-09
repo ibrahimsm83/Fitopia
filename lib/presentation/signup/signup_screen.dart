@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/background_image_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -36,7 +38,8 @@ class _SignUp1State extends State<SignUp1> {
                 AppLogoView(),
                 SizedBox(height: AppSize.s20.vs),
                 Text(
-                  AppStrings.createAnAccount,
+                   LocaleKeys.createAnAccount.tr(),
+                  //AppStrings.createAnAccount,
                   style: getboldStyle(
                       color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
                 ),
@@ -54,8 +57,8 @@ class _SignUp1State extends State<SignUp1> {
 
                 SizedBox(height: 1.vs),
                 textspan(
-                  text1: AppStrings.alreadyHaveanAccount,
-                  text2: AppStrings.signIn,
+                  text1: LocaleKeys.alreadyHaveanAccount.tr(),//AppStrings.alreadyHaveanAccount,
+                  text2: LocaleKeys.signIn.tr(),//AppStrings.signIn,
                   onTap: () => Navigator.pushReplacementNamed(
                       context, Routes.loginRoute),
                 ),
@@ -77,7 +80,7 @@ class _SignUp1State extends State<SignUp1> {
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              AppStrings.whatsYourEmail,
+               LocaleKeys.whatsYourEmail.tr(),
               textAlign: TextAlign.left,
               style: getboldStyle(
                   color: ColorManager.blackColor, fontSize: AppSize.s13.mv),
@@ -86,7 +89,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: AppSize.s15.vs),
         CustomeTextFormField(
-          hintText: AppStrings.enterYourEmail,
+          hintText: LocaleKeys.enterYourEmail.tr(),
           // fillColor: ColorManager.primarydarkColor,
           validator: (String? val) {
             //   if (val == null || val.isEmpty) {
@@ -98,7 +101,7 @@ class _SignUp1State extends State<SignUp1> {
         TermAndCondition(),
         SizedBox(height: 10.vs),
         button(
-            text: AppStrings.contine,
+            text: LocaleKeys.contine.tr(),//AppStrings.contine,
             color: ColorManager.primary,
             onTap: () {
               setState(() {
@@ -119,7 +122,7 @@ class _SignUp1State extends State<SignUp1> {
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              AppStrings.ChoosePassword,
+               LocaleKeys.ChoosePassword.tr(),//AppStrings.ChoosePassword,
               textAlign: TextAlign.left,
               style: getboldStyle(
                   color: ColorManager.blackColor, fontSize: AppSize.s13.mv),
@@ -128,7 +131,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: AppSize.s15.vs),
         CustomeTextFormField(
-          hintText: AppStrings.enterPassword,
+          hintText:  LocaleKeys.enterPassword.tr(),//AppStrings.enterPassword,
           obscureText: true,
           // fillColor: ColorManager.primarydarkColor,
           validator: (String? val) {
@@ -143,7 +146,7 @@ class _SignUp1State extends State<SignUp1> {
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              AppStrings.passwordValidation,
+              LocaleKeys.passwordValidation.tr(),
               textAlign: TextAlign.left,
               style: getRegularStyle(
                   color: ColorManager.greyBorderColor,
@@ -153,7 +156,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: 10.vs),
         button(
-            text: AppStrings.contine,
+            text: LocaleKeys.contine.tr(),// AppStrings.contine,
             color: ColorManager.primary,
             onTap: () {
               setState(() {
@@ -168,7 +171,7 @@ class _SignUp1State extends State<SignUp1> {
             });
           }),
           child: Text(
-            AppStrings.back,
+             LocaleKeys.back.tr(),//AppStrings.back,
             textAlign: TextAlign.left,
             style: getboldStyle(
                 color: ColorManager.greyBorderColor, fontSize: AppSize.s13.mv),
@@ -187,7 +190,7 @@ class _SignUp1State extends State<SignUp1> {
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              AppStrings.WhatsYourName,
+               LocaleKeys.WhatsYourName.tr(),//AppStrings.WhatsYourName,
               textAlign: TextAlign.left,
               style: getboldStyle(
                   color: ColorManager.blackColor, fontSize: AppSize.s13.mv),
@@ -196,7 +199,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: AppSize.s15.vs),
         CustomeTextFormField(
-          hintText: AppStrings.FirstName,
+          hintText:  LocaleKeys.FirstName.tr(),//AppStrings.FirstName,
           validator: (String? val) {
             //   if (val == null || val.isEmpty) {
             //     return AppStrings.enterYourEmail;
@@ -206,7 +209,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: AppSize.s15.vs),
         CustomeTextFormField(
-          hintText: AppStrings.LastName,
+          hintText: LocaleKeys.LastName.tr(),//AppStrings.LastName,
           validator: (String? val) {
             //   if (val == null || val.isEmpty) {
             //     return AppStrings.enterYourEmail;
@@ -219,7 +222,7 @@ class _SignUp1State extends State<SignUp1> {
           child: Align(
             alignment: Alignment.topLeft,
             child: textspan(
-              text1: AppStrings.privacyPlicy,
+              text1: LocaleKeys.privacyPlicy.tr(),//AppStrings.privacyPlicy,
               text2: "Privacy Policy and Terms & Conditions.",
               onTap: () =>
                   Navigator.pushReplacementNamed(context, Routes.loginRoute),
@@ -228,7 +231,7 @@ class _SignUp1State extends State<SignUp1> {
         ),
         SizedBox(height: 10.vs),
         button(
-            text: AppStrings.CREATEACCOUNT,
+            text: LocaleKeys.CREATEACCOUNT.tr(),//AppStrings.CREATEACCOUNT,
             color: ColorManager.primary,
             onTap: () {
               Navigator.pushReplacementNamed(context, Routes.Onboarding1Route);
@@ -241,7 +244,7 @@ class _SignUp1State extends State<SignUp1> {
             });
           }),
           child: Text(
-            AppStrings.back,
+            LocaleKeys.back.tr(),//AppStrings.back,
             textAlign: TextAlign.left,
             style: getboldStyle(
                 color: ColorManager.greyBorderColor, fontSize: AppSize.s13.mv),
@@ -272,13 +275,13 @@ class _SignUp1State extends State<SignUp1> {
           ),
           RichText(
             text: TextSpan(
-              text: AppStrings.sendmeEmailFitopiaTeam,
+              text: LocaleKeys.sendmeEmailFitopiaTeam.tr(),//AppStrings.sendmeEmailFitopiaTeam,
               style: getRegularStyle(
                   color: ColorManager
                       .blackColor), //TextStyle(color: Colors.black, fontSize: 16.sp),
               children: <TextSpan>[
                 TextSpan(
-                  text: " Fitopia's team",
+                  text: "Fitopia's team",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,

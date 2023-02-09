@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/background_image_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -48,7 +50,7 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                 AppLogoView(),
                 SizedBox(height: AppSize.s20.vs),
                 Text(
-                  AppStrings.forgotyourPassword,
+                  LocaleKeys.forgotyourPassword.tr(),
                   textAlign: TextAlign.center,
                   style: getmediumStyle(
                       color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
@@ -59,7 +61,8 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                 Padding(
                   padding: const EdgeInsets.only(left: AppSize.s12),
                   child: Text(
-                    AppStrings.enter6digitcode,
+                    LocaleKeys.enter6digitcode.tr(),
+
                     //textAlign: TextAlign.center,
                     style: getmediumStyle(
                         color: ColorManager.greyColor,
@@ -117,7 +120,7 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                 GestureDetector(
                   onTap: (() => Navigator.of(context).pop()),
                   child: Text(
-                    AppStrings.resendCode,
+                    LocaleKeys.resendCode.tr(),
                     textAlign: TextAlign.center,
                     style: getboldStyle(
                         color: ColorManager.primary, fontSize: AppSize.s13.mv),
@@ -125,7 +128,7 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                 ),
                 SizedBox(height: 30.vs),
                 button(
-                    text: AppStrings.next,
+                    text: LocaleKeys.next.tr(),
                     color: ColorManager.primary,
                     onTap: () {
                       if (currentText.length == 6) {
@@ -141,8 +144,8 @@ class _OtpVerificationViewState extends State<OtpVerificationView> {
                 SizedBox(height: 2.vs),
 
                 textspan(
-                    text1: AppStrings.dontHaveAnAccount,
-                    text2: AppStrings.signUp,
+                    text1: LocaleKeys.dontHaveAnAccount.tr(),
+                    text2: LocaleKeys.signUp.tr(),
                     onTap: () =>
                         Navigator.pushNamed(context, Routes.signUp1Route),
                     context: context),

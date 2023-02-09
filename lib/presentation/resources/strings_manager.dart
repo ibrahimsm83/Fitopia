@@ -119,6 +119,7 @@ static const String ThiswillUsedToCalculateMealplan = "This will be used to calc
       "Build your strength and muscles";
   static const String getLeanerImproveFitness =
       "Get Leaner and improve your fitness";
+       static const String Vegetarian = "Vegetarian";
   // static const String whatYourCurrentFitnessLevel =
   //     "What's your current fitness level?";
   // static const String iCurrentlyTrain24timesAWeek =
@@ -132,7 +133,7 @@ static const String ThiswillUsedToCalculateMealplan = "This will be used to calc
   // static const String Regular = "Regular";
   // static const String MeatVegSeafoodTheLot = "Meat, veg, seafood, the lot.";
   // static const String Pescatarian = "Pescatarian";
-  static const String Vegetarian = "Vegetarian";
+ 
   // static const String HoldTheMeatSeafoodPlease =
   //     "Hold the meat and seafood please.";
   // // static const String Vegan = "Vegan";

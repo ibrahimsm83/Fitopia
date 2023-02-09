@@ -1,4 +1,6 @@
 import 'package:fitopia/presentation/resources/index_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 
 class onBoradingModel {
   int? id;
@@ -9,91 +11,116 @@ class onBoradingModel {
   onBoradingModel({this.id, this.leading, this.title, this.description});
 }
 
-
 ///Goal list
 List<onBoradingModel>? goalList = [
-    onBoradingModel(
-      id: 0,
-        title: AppStrings.loseWeight,
-        description: AppStrings.getLeanerImproveFitness),
-    onBoradingModel(
-      id: 1,
-        title: AppStrings.Leanbulk,
-        description: AppStrings.buildYourStrengthMuscles),
-    onBoradingModel(
-      id: 2,
-        title: AppStrings.Gainweight,
-        description: AppStrings.eatTrainOptimumHealth),
-  ];
+  onBoradingModel(
+    id: 0,
+    title: LocaleKeys.loseWeight.tr(), //AppStrings.loseWeight,
+    description: LocaleKeys.getLeanerImproveFitness
+        .tr(), //AppStrings.getLeanerImproveFitness
+  ),
+  onBoradingModel(
+    id: 1,
+    title: LocaleKeys.Leanbulk.tr(), //AppStrings.Leanbulk,
+    description: LocaleKeys.buildYourStrengthMuscles
+        .tr(), //AppStrings.buildYourStrengthMuscles
+  ),
+  onBoradingModel(
+    id: 2,
+    title: LocaleKeys.Gainweight.tr(), //AppStrings.Gainweight,
+    description: LocaleKeys.eatTrainOptimumHealth
+        .tr(), //AppStrings.eatTrainOptimumHealth
+  ),
+];
 
 ///Dietry Requirments
 List<onBoradingModel>? DietryRequirmentList = [
-    onBoradingModel(
-      id: 0,
-        title: AppStrings.Standard,
-        description: AppStrings.Ieateverything),
-    onBoradingModel(
-      id: 1,
-        title: AppStrings.Vegetarian,
-       // description: AppStrings.buildYourStrengthMuscles
-        ),
-    onBoradingModel(
-      id: 2,
-        title: AppStrings.Vegan,
-        //description: AppStrings.eatTrainOptimumHealth
-        ),
-  ];
+  onBoradingModel(
+    id: 0,
+    title: LocaleKeys.Standard.tr(), //AppStrings.Standard,
+    description: LocaleKeys.Ieateverything.tr(), //AppStrings.Ieateverything
+  ),
+  onBoradingModel(
+    id: 1,
+    title: LocaleKeys.Vegetarian.tr(), //AppStrings.Vegetarian,
+    // description: AppStrings.buildYourStrengthMuscles
+  ),
+  onBoradingModel(
+    id: 2,
+    title: LocaleKeys.Vegan.tr(), //AppStrings.Vegan,
+    //description: AppStrings.eatTrainOptimumHealth
+  ),
+];
 
-  ///How active are you
+///How active are you
 List<onBoradingModel>? HowActiveAreYouList = [
-    onBoradingModel(
-      id: 0,
-        title: AppStrings.Sedentary,
-        description: AppStrings.egDeskJob),
-    onBoradingModel(
-      id: 1,
-        title: AppStrings.LightlyActive,
-       description: AppStrings.egDlightdaily
-        ),
-    onBoradingModel(
-      id: 2,
-        title: AppStrings.ModeratelyActive,
-        description: AppStrings.egmoderatedaily
-        ),
-    onBoradingModel(
-      id: 3,
-        title: AppStrings.Veryactive,
-        description: AppStrings.egphysicallydemanding
-        ),
-    onBoradingModel(
-      id: 4,
-        title: AppStrings.Extremelyactive,
-        description: AppStrings.egAthleteIn
-        ),
-  ];
+  onBoradingModel(
+    id: 0,
+    title: LocaleKeys.Sedentary.tr(), // AppStrings.Sedentary,
+    description: LocaleKeys.egDeskJob.tr(), //AppStrings.egDeskJob
+  ),
+  onBoradingModel(
+    id: 1,
+    title: LocaleKeys.LightlyActive.tr(), //AppStrings.LightlyActive,
+    description: LocaleKeys.egmoderatedaily.tr(), //AppStrings.egDlightdaily
+  ),
+  onBoradingModel(
+    id: 2,
+    title: LocaleKeys.ModeratelyActive.tr(), //AppStrings.ModeratelyActive,
+    description: LocaleKeys.egmoderatedaily.tr(), // AppStrings.egmoderatedaily
+  ),
+  onBoradingModel(
+    id: 3,
+    title: LocaleKeys.Veryactive.tr(), //AppStrings.Veryactive,
+    description: LocaleKeys.egphysicallydemanding
+        .tr(), //AppStrings.egphysicallydemanding
+  ),
+  onBoradingModel(
+    id: 4,
+    title: LocaleKeys.Extremelyactive.tr(), //AppStrings.Extremelyactive,
+    description: LocaleKeys.egAthleteIn.tr(), //AppStrings.egAthleteIn
+  ),
+];
 
-  ///MaleFemale
-  List<onBoradingModel>? genderList = [
-    onBoradingModel(
-      id: 0,
-        title: AppStrings.male,
-       ),
-    onBoradingModel(
-      id: 1,
-        title: AppStrings.female,
+///MaleFemale
+List<onBoradingModel>? genderList = [
+  onBoradingModel(
+    id: 0,
+    title: AppStrings.male,
+  ),
+  onBoradingModel(
+    id: 1,
+    title: AppStrings.female,
+  ),
+];
+
+class onboardingImageTitle {
+  String? imagePath;
+  String? title;
+  onboardingImageTitle(this.imagePath, this.title);
+}
+
+//LocaleKeys.LastName.tr(),
+// AppStrings.whatsyourgoal
+List<onboardingImageTitle> OnboardingImgTitle = [
+  onboardingImageTitle(ImageAssets.onboarding1,
+  LocaleKeys.whatsyourgoal.tr()
+   //AppStrings.whatsyourgoal
+   ),
+  onboardingImageTitle(
+      ImageAssets.onboarding2, 
+       LocaleKeys.WhatAreYourDietaryrequirements.tr()
+      //AppStrings.WhatAreYourDietaryrequirements
+      
       ),
+  onboardingImageTitle(ImageAssets.onboarding3,
+    LocaleKeys.Howactiveareyou.tr()
+  // AppStrings.Howactiveareyou
   
-  ];
-
-  class onboardingImageTitle{
-    String? imagePath;
-    String? title;
-    onboardingImageTitle(this.imagePath,this.title);
-  }
-
-  List<onboardingImageTitle> OnboardingImgTitle=[
-    onboardingImageTitle( ImageAssets.onboarding1,AppStrings.whatsyourgoal),
-    onboardingImageTitle( ImageAssets.onboarding2,AppStrings.WhatAreYourDietaryrequirements),
-    onboardingImageTitle( ImageAssets.onboarding3,AppStrings.Howactiveareyou),
-    onboardingImageTitle( ImageAssets.onboarding4,AppStrings.WhatGenderdoYouidentityAs),
-  ];
+  ),
+  onboardingImageTitle(
+      ImageAssets.onboarding4, 
+       LocaleKeys.WhatGenderdoYouidentityAs.tr()
+      //AppStrings.WhatGenderdoYouidentityAs
+      ),
+];
