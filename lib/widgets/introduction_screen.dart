@@ -48,8 +48,9 @@ class _IndroductionPageState extends State<IndroductionPage> {
             child: Text(
               widget.title ?? "",
               textAlign: TextAlign.center,
-              style: getmediumStyle(
-                  color: ColorManager.blackColor, fontSize: AppSize.s16.mv),
+              style: getboldStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color!,
+                  fontSize: AppSize.s16.mv),
             ),
           ),
           // SizedBox(height: 10.h),
@@ -58,8 +59,9 @@ class _IndroductionPageState extends State<IndroductionPage> {
             child: Text(
               widget.description!,
               textAlign: TextAlign.center,
-              style: getboldStyle(
-                  color: ColorManager.blackColor, fontSize: AppSize.s16.mv),
+              style: getRegularStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color!,
+                  fontSize: AppSize.s12.mv),
             ),
           ),
           //SizedBox(height: sizeheight(context) / 9),

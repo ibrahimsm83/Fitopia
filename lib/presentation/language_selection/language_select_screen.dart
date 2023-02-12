@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/bloc/theme_bloc.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/presentation/resources/app_theme.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -19,19 +20,30 @@ class _LanguagePageState extends State<LanguagePage> {
   // The inital group value
   String _selectedLanguage = 'en';
   bool isChanged = false;
+  late AppTheme _curTheme;
 
-  _lightTheme(context) {
-    BlocProvider.of<ChangeThemeBloc>(context).add(LightThemeEvent());
+  _setTheme(bool darkTheme) {
+    _curTheme = darkTheme ? AppTheme.lightTheme : AppTheme.darkTheme;
+    BlocProvider.of<ThemeBloc>(context).add(ThemeEvent(appTheme: _curTheme));
   }
 
-  _darckTheme(context) {
-    BlocProvider.of<ChangeThemeBloc>(context).add(DarkThemeEvent());
+  @override
+  void initState() {
+    _curTheme = AppTheme.lightTheme;
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    // theme.brightness == Brightness.light
+    final theme = Theme.of(context);
+    if (theme.brightness == Brightness.light) {
+      print("------dark theme----");
+    } else if (theme.brightness == Brightness.dark) {
+      print("light theme");
+    }
     return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Theme(
           data: Theme.of(context).copyWith(unselectedWidgetColor: Colors.grey),
@@ -42,8 +54,15 @@ class _LanguagePageState extends State<LanguagePage> {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: IconButton(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Switch(
+                      value: _curTheme == AppTheme.lightTheme,
+                      onChanged: (value) {
+                        _setTheme(value);
+                      },
+                    )
+                    /*
+                  IconButton(
                     icon: Icon(
                       Icons.brightness_4,
                       color: Colors.red,
@@ -51,22 +70,40 @@ class _LanguagePageState extends State<LanguagePage> {
                     tooltip: 'Theme selector',
                     onPressed: () {
                       setState(() {
-                        !isChanged
-                            ? _lightTheme(context)
-                            : _darckTheme(context);
+                        if (!isChanged) {
+                          // BlocProvider.of<ThemeBloc>(context)
+                          //     .add(ThemeChanged(apptheme: AppTheme.LightTheme));
+                          _setTheme(true);
+                          //value = 0;
+                          //_lightTheme(context)
+                        } else {
+                          // BlocProvider.of<ThemeBloc>(context)
+                          //     .add(ThemeChanged(apptheme: AppTheme.DarkTheme));
+                          //value = 1;
+                          _setTheme(false);
+                        } //_darckTheme(context);
                         isChanged = !isChanged;
                       });
                     },
                   ),
-                ),
+                */
+                    ),
               ),
               SizedBox(height: AppSize.s20.vs),
               AppLogoView(),
               SizedBox(height: AppSize.s20.vs),
               Text(
                 LocaleKeys.welcomeToFitopia.tr(),
-                style: getboldStyle(
-                    color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
+                style:
+                    //appThemeData[value]?.textTheme.bodyText1,
+
+                    getboldStyle(
+                        color: Theme.of(context).textTheme.bodyText1!.color!,
+                        //  appThemeData[AppTheme.values[value]]!
+                        //     .secondaryHeaderColor,
+                        //appThemeData[AppTheme.values[value]]!
+
+                        fontSize: AppSize.s20.mv),
               ),
               SizedBox(height: 20.0),
               Padding(
@@ -74,13 +111,17 @@ class _LanguagePageState extends State<LanguagePage> {
                 child: Text(
                   LocaleKeys.Language.tr(),
                   style: getmediumStyle(
-                      color: ColorManager.blackColor, fontSize: AppSize.s18.mv),
+                      color: Theme.of(context).textTheme.bodyText1!.color!,
+                      // appThemeData[AppTheme.values[value]]!
+                      //     .secondaryHeaderColor,
+                      fontSize: AppSize.s18.mv),
                 ),
               ),
               SizedBox(height: 10.0),
               Container(
                 height: 0.3,
-                color: ColorManager.blackColor,
+                color: Theme.of(context).textTheme.bodyText1!.color!,
+                // appThemeData[AppTheme.values[value]]!.secondaryHeaderColor,
               ),
               ListTile(
                 trailing: Radio<String>(
@@ -98,7 +139,10 @@ class _LanguagePageState extends State<LanguagePage> {
                   "English",
                   //LocaleKeys.English_US.tr(),
                   style: getmediumStyle(
-                      color: ColorManager.blackColor, fontSize: AppSize.s13.mv),
+                      color: Theme.of(context).textTheme.bodyText1!.color!,
+                      //appThemeData[AppTheme.values[value]]!
+                      // .secondaryHeaderColor,
+                      fontSize: AppSize.s13.mv),
                 ),
               ),
               ListTile(
@@ -116,7 +160,11 @@ class _LanguagePageState extends State<LanguagePage> {
                 title: Text(
                   LocaleKeys.arabic.tr(),
                   style: getmediumStyle(
-                      color: ColorManager.blackColor, fontSize: AppSize.s13.mv),
+                      color: Theme.of(context).textTheme.bodyText1!.color!,
+
+                      // appThemeData[AppTheme.values[value]]!
+                      //     .secondaryHeaderColor,
+                      fontSize: AppSize.s13.mv),
                 ),
               ),
               SizedBox(height: 20),

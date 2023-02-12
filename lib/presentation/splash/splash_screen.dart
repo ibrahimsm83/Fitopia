@@ -41,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Image.asset(
             ImageAssets.appPngLogo,
             //appLogo,
-            height: 200,
-            width: 200,
+            height: 150,
+            width: 150,
           ),
         ),
       ));

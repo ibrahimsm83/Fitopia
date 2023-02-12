@@ -10,7 +10,7 @@ class ColorManager {
 
 //------------------------------------darkThemeColor---------
 
-  static Color primarydarkColor = HexColor.fromHex("#535C73");
+  static Color primarydarkColor = HexColor.fromHex("#242A38");
   // new colors
   static Color darkPrimary = HexColor.fromHex("#d17d11");
   static Color whiteColor = Colors.white;

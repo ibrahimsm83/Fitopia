@@ -17,79 +17,95 @@ class Onboarding1View extends StatefulWidget {
 }
 
 class _Onboarding1ViewState extends State<Onboarding1View> {
-List<onBoradingModel>? selectedList;
+  List<onBoradingModel>? selectedList;
 
   int selectedIndex = 0;
-  int currentPage=0;
+  int currentPage = 0;
 
-List<bool> isStatusBarActive=[true,false,false,false];
-
+  List<bool> isStatusBarActive = [true, false, false, false];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
+      // backgroundColor: ColorManager.whiteColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       body: SafeArea(
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
-          //SizedBox(height: 20.vs),
+            //SizedBox(height: 20.vs),
             Align(
-              alignment: Alignment.topCenter,
-              //padding: EdgeInsets.only(top: 20),
-              child: statusBar()),
+                alignment: Alignment.topCenter,
+                //padding: EdgeInsets.only(top: 20),
+                child: statusBar()),
             //SizedBox(height: AppSize.s28.vs),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 50),
               child: SvgPicture.asset(
-              currentPage==0?  OnboardingImgTitle[0].imagePath! :currentPage==1?
-         OnboardingImgTitle[1].imagePath!:currentPage==2? OnboardingImgTitle[2].imagePath!:OnboardingImgTitle[3].imagePath!,
+                currentPage == 0
+                    ? OnboardingImgTitle[0].imagePath!
+                    : currentPage == 1
+                        ? OnboardingImgTitle[1].imagePath!
+                        : currentPage == 2
+                            ? OnboardingImgTitle[2].imagePath!
+                            : OnboardingImgTitle[3].imagePath!,
+                height: 200,
               ),
             ),
-           
+
             Padding(
-              padding: const EdgeInsets.only(top: 310),
+              padding: const EdgeInsets.only(top: 300),
               child: Text(
                 // AppStrings.whatsyourgoal,
-                 currentPage==0?  OnboardingImgTitle[0].title! :currentPage==1?
-         OnboardingImgTitle[1].title!:currentPage==2? OnboardingImgTitle[2].title!:OnboardingImgTitle[3].title!,
+                currentPage == 0
+                    ? OnboardingImgTitle[0].title!
+                    : currentPage == 1
+                        ? OnboardingImgTitle[1].title!
+                        : currentPage == 2
+                            ? OnboardingImgTitle[2].title!
+                            : OnboardingImgTitle[3].title!,
                 style: getboldStyle(
-                    color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
+                    color: Theme.of(context).textTheme.bodyText1!.color!,
+                    fontSize: AppSize.s20.mv),
               ),
             ),
-         
 
             Padding(
               padding: const EdgeInsets.only(top: 350),
-              child: SizedBox(child:
-         currentPage==0?  onboarding1Widget() :currentPage==1?
-           onboarding2Widget(DietryRequirmentList):currentPage==2? onboarding3Widget(HowActiveAreYouList):onboarding4Widget(genderList)),
+              child: SizedBox(
+                  child: currentPage == 0
+                      ? onboarding1Widget()
+                      : currentPage == 1
+                          ? onboarding2Widget(DietryRequirmentList)
+                          : currentPage == 2
+                              ? onboarding3Widget(HowActiveAreYouList)
+                              : onboarding4Widget(genderList)),
             ),
-          
+
             Align(
               alignment: Alignment.bottomCenter,
               child: button(
-                  text:LocaleKeys.next.tr(),
+                  text: LocaleKeys.next.tr(),
                   color: ColorManager.primary,
                   onTap: () {
                     print("${currentPage}");
                     setState(() {
-                      if(currentPage==0){
-                         isStatusBarActive[1]=true;
-                        currentPage=1;
-                      }else if(currentPage==1){
-                         isStatusBarActive[2]=true;
-                        currentPage=2;
-                      }else if(currentPage==2){
-                         isStatusBarActive[3]=true;
-                        currentPage=3;
-                      }else {
-                        currentPage=0;
-                         isStatusBarActive[0]=true;
-                         isStatusBarActive[1]=false;
-                         isStatusBarActive[2]=false;
-                         isStatusBarActive[3]=false;
-
+                      if (currentPage == 0) {
+                        isStatusBarActive[1] = true;
+                        currentPage = 1;
+                      } else if (currentPage == 1) {
+                        isStatusBarActive[2] = true;
+                        currentPage = 2;
+                      } else if (currentPage == 2) {
+                        isStatusBarActive[3] = true;
+                        currentPage = 3;
+                      } else {
+                        currentPage = 0;
+                        isStatusBarActive[0] = true;
+                        isStatusBarActive[1] = false;
+                        isStatusBarActive[2] = false;
+                        isStatusBarActive[3] = false;
                       }
                     });
                     // Navigator.pushReplacementNamed(
@@ -117,56 +133,58 @@ List<bool> isStatusBarActive=[true,false,false,false];
           onTap: onTap),
     );
   }
-Widget onboarding2Widget(List<onBoradingModel>? itemList){
-  return  FixedTogglesButtonsList(
-              selected: selectedIndex,
-              callback: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              name: itemList,
-            );
-}
 
-Widget onboarding3Widget(List<onBoradingModel>? itemList){
-  return  FixedTogglesButtonsList(
-              selected: selectedIndex,
-              callback: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              name: itemList,
-            );
-}
-  Widget onboarding1Widget(){
+  Widget onboarding2Widget(List<onBoradingModel>? itemList) {
+    return FixedTogglesButtonsList(
+      selected: selectedIndex,
+      callback: (int index) {
+        setState(() {
+          selectedIndex = index;
+        });
+      },
+      name: itemList,
+    );
+  }
+
+  Widget onboarding3Widget(List<onBoradingModel>? itemList) {
+    return FixedTogglesButtonsList(
+      selected: selectedIndex,
+      callback: (int index) {
+        setState(() {
+          selectedIndex = index;
+        });
+      },
+      name: itemList,
+    );
+  }
+
+  Widget onboarding1Widget() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ListView.builder(
-                itemCount: goalList!.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return GridItem(
-                      item: goalList![index],
-                      isSelected: (bool value) {
-                        setState(() {
-                          if (value) {
-                            selectedList?.add(goalList![index]);
-                          } else {
-                            selectedList?.remove(goalList![index]);
-                          }
-                        });
-                        print("$index : $value");
-                      },
-                      key: Key(goalList![index].id.toString()));
-                }),
+          itemCount: goalList!.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return GridItem(
+                item: goalList![index],
+                isSelected: (bool value) {
+                  setState(() {
+                    if (value) {
+                      selectedList?.add(goalList![index]);
+                    } else {
+                      selectedList?.remove(goalList![index]);
+                    }
+                  });
+                  print("$index : $value");
+                },
+                key: Key(goalList![index].id.toString()));
+          }),
     );
   }
 
   Widget statusBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Row(
         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -186,7 +204,9 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-                color:isStatusBarActive[1]?ColorManager.primary: ColorManager.greyColor,
+                color: isStatusBarActive[1]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
@@ -197,7 +217,9 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-               color:isStatusBarActive[2]?ColorManager.primary: ColorManager.greyColor,
+                color: isStatusBarActive[2]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
@@ -208,7 +230,9 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
               height: 10,
               // width: 50,
               decoration: BoxDecoration(
-               color:isStatusBarActive[3]?ColorManager.primary: ColorManager.greyColor,
+                color: isStatusBarActive[3]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
                 borderRadius: BorderRadius.circular(20.0),
               ),
             ),
@@ -230,16 +254,15 @@ Widget onboarding3Widget(List<onBoradingModel>? itemList){
     // );
   }
 
-Widget onboarding4Widget(List<onBoradingModel>? itemList){
-  return  FixedTogglesButtonsList(
-              selected: selectedIndex,
-              callback: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              name: itemList,
-            );
-}
-
+  Widget onboarding4Widget(List<onBoradingModel>? itemList) {
+    return FixedTogglesButtonsList(
+      selected: selectedIndex,
+      callback: (int index) {
+        setState(() {
+          selectedIndex = index;
+        });
+      },
+      name: itemList,
+    );
+  }
 }

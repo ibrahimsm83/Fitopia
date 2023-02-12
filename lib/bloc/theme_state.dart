@@ -1,8 +1,16 @@
-import 'package:flutter/material.dart';
+part of 'theme_bloc.dart';
 
-class ChangeThemeState {
-  String name;
-  ThemeData changeTheme;
+// class ThemeState extends Equatable {
+//   //final string value;
+//   final ThemeData themeData;
 
-  ChangeThemeState(this.name, this.changeTheme);
+//   const ThemeState({required this.themeData /*this.value*/});
+
+//   @override
+//   List<Object?> get props => [themeData]; //[value];
+// }
+
+class ThemeState {
+  final ThemeData themeData;
+  ThemeState({required this.themeData});
 }
