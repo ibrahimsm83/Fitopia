@@ -8,8 +8,6 @@ import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-
 import '../resources/index_manager.dart';
 
 class ForgotPasswordView extends StatefulWidget {

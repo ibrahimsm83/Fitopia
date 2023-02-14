@@ -7,6 +7,7 @@ import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Onboarding1View extends StatefulWidget {
@@ -22,7 +23,7 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
   int selectedIndex = 0;
   int currentPage = 0;
 
-  List<bool> isStatusBarActive = [true, false, false, false];
+  List<bool> isStatusBarActive = [true, false, false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         : currentPage == 2
                             ? OnboardingImgTitle[2].imagePath!
                             : OnboardingImgTitle[3].imagePath!,
-                height: 200,
+                height: 180,
               ),
             ),
 
@@ -64,7 +65,11 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         ? OnboardingImgTitle[1].title!
                         : currentPage == 2
                             ? OnboardingImgTitle[2].title!
-                            : OnboardingImgTitle[3].title!,
+                            : currentPage == 3
+                                ? OnboardingImgTitle[3].title!
+                                : currentPage == 4
+                                    ? OnboardingImgTitle[4].title!
+                                    : OnboardingImgTitle[5].title!,
                 style: getboldStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color!,
                     fontSize: AppSize.s20.mv),
@@ -80,7 +85,11 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                           ? onboarding2Widget(DietryRequirmentList)
                           : currentPage == 2
                               ? onboarding3Widget(HowActiveAreYouList)
-                              : onboarding4Widget(genderList)),
+                              : currentPage == 3
+                                  ? onboarding4Widget(genderList)
+                                  : currentPage == 4
+                                      ? onboarding4Widget(maleSpecificPlanList)
+                                      : HowOldAreYou()),
             ),
 
             Align(
@@ -100,12 +109,20 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                       } else if (currentPage == 2) {
                         isStatusBarActive[3] = true;
                         currentPage = 3;
+                      } else if (currentPage == 3) {
+                        currentPage = 4;
+                        isStatusBarActive[4] = true;
+                      } else if (currentPage == 4) {
+                        currentPage = 5;
+                        isStatusBarActive[5] = true;
                       } else {
                         currentPage = 0;
                         isStatusBarActive[0] = true;
                         isStatusBarActive[1] = false;
                         isStatusBarActive[2] = false;
                         isStatusBarActive[3] = false;
+                        isStatusBarActive[4] = false;
+                        isStatusBarActive[5] = false;
                       }
                     });
                     // Navigator.pushReplacementNamed(
@@ -237,6 +254,32 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               ),
             ),
           ),
+          SizedBox(width: 10.0),
+          Flexible(
+            child: Container(
+              height: 10,
+              // width: 50,
+              decoration: BoxDecoration(
+                color: isStatusBarActive[4]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
+          SizedBox(width: 10.0),
+          Flexible(
+            child: Container(
+              height: 10,
+              // width: 50,
+              decoration: BoxDecoration(
+                color: isStatusBarActive[5]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -263,6 +306,50 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
         });
       },
       name: itemList,
+    );
+  }
+
+  Widget HowOldAreYou() {
+    return Container(
+      //color: ColorManager.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  //border: InputBorder,
+                  labelText: 'DD',
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  //border: InputBorder.none,
+                  labelText: 'MM',
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  //border: InputBorder.none,
+                  labelText: 'YYYY',
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

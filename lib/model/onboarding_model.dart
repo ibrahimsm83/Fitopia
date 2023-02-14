@@ -86,11 +86,23 @@ List<onBoradingModel>? HowActiveAreYouList = [
 List<onBoradingModel>? genderList = [
   onBoradingModel(
     id: 0,
-    title: AppStrings.male,
+    title: LocaleKeys.male1.tr(), //"Male",//AppStrings.male,
   ),
   onBoradingModel(
     id: 1,
-    title: AppStrings.female,
+    title: LocaleKeys.female1.tr(), //"Female",// AppStrings.female,
+  ),
+];
+
+///MaleFemale
+List<onBoradingModel>? maleSpecificPlanList = [
+  onBoradingModel(
+    id: 0,
+    title: LocaleKeys.yes.tr(), //"Yes",
+  ),
+  onBoradingModel(
+    id: 1,
+    title: LocaleKeys.no.tr(), //"No",
   ),
 ];
 
@@ -100,27 +112,16 @@ class onboardingImageTitle {
   onboardingImageTitle(this.imagePath, this.title);
 }
 
-//LocaleKeys.LastName.tr(),
-// AppStrings.whatsyourgoal
 List<onboardingImageTitle> OnboardingImgTitle = [
-  onboardingImageTitle(ImageAssets.onboarding1,
-  LocaleKeys.whatsyourgoal.tr()
-   //AppStrings.whatsyourgoal
-   ),
+  onboardingImageTitle(ImageAssets.onboarding1, LocaleKeys.whatsyourgoal.tr()),
   onboardingImageTitle(
-      ImageAssets.onboarding2, 
-       LocaleKeys.WhatAreYourDietaryrequirements.tr()
-      //AppStrings.WhatAreYourDietaryrequirements
-      
-      ),
-  onboardingImageTitle(ImageAssets.onboarding3,
-    LocaleKeys.Howactiveareyou.tr()
-  // AppStrings.Howactiveareyou
-  
-  ),
+      ImageAssets.onboarding2, LocaleKeys.WhatAreYourDietaryrequirements.tr()),
   onboardingImageTitle(
-      ImageAssets.onboarding4, 
-       LocaleKeys.WhatGenderdoYouidentityAs.tr()
-      //AppStrings.WhatGenderdoYouidentityAs
-      ),
+      ImageAssets.onboarding3, LocaleKeys.Howactiveareyou.tr()),
+  onboardingImageTitle(
+      ImageAssets.onboarding4, LocaleKeys.WhatGenderdoYouidentityAs.tr()),
+        onboardingImageTitle(
+      ImageAssets.onboarding3, LocaleKeys.doyouwanttofemaleSpecificplan.tr()),
+        onboardingImageTitle(
+      ImageAssets.onboarding3, LocaleKeys.howOldAreYou.tr()),
 ];

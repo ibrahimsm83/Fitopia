@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/app_logo_widget.dart';
 import 'package:fitopia/widgets/background_image_widget.dart';
 import 'package:fitopia/widgets/custome_button.dart';
@@ -31,7 +33,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 AppLogoView(),
                 SizedBox(height: AppSize.s20.vs),
                 Text(
-                  AppStrings.forgotyourPassword,
+                  LocaleKeys.forgotPassword.tr(),
+                  //AppStrings.forgotyourPassword,
                   style: getboldStyle(
                       color: ColorManager.blackColor, fontSize: AppSize.s20.mv),
                 ),
@@ -44,7 +47,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      AppStrings.enterNewpassword,
+                      LocaleKeys.enterNewpassword.tr(),
+                      //AppStrings.enterNewpassword,
                       textAlign: TextAlign.left,
                       style: getboldStyle(
                           color: ColorManager.greyColor,
@@ -54,7 +58,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 ),
                 SizedBox(height: AppSize.s15.vs),
                 CustomeTextFormField(
-                  hintText: AppStrings.newPassword,
+                  hintText: LocaleKeys.newPassword.tr(),
+                  //AppStrings.newPassword,
                   // fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
                     //   if (val == null || val.isEmpty) {
@@ -71,7 +76,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      AppStrings.typePasswordAgainConfirm,
+                      LocaleKeys.typePasswordAgainConfirm.tr(),
+                      // AppStrings.typePasswordAgainConfirm,
                       textAlign: TextAlign.left,
                       style: getboldStyle(
                           color: ColorManager.greyColor,
@@ -81,7 +87,9 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 ),
                 SizedBox(height: AppSize.s15.vs),
                 CustomeTextFormField(
-                  hintText: AppStrings.confirmPassword,
+                  hintText: LocaleKeys.confirmPassword.tr(),
+
+                  //AppStrings.confirmPassword,
                   // fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
                     //   if (val == null || val.isEmpty) {
@@ -93,7 +101,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
 
                 SizedBox(height: 30.vs),
                 button(
-                    text: AppStrings.changePassword,
+                    text: LocaleKeys.changePassword
+                        .tr(), //AppStrings.changePassword,
                     color: ColorManager.primary,
                     onTap: () {
                       Navigator.pushNamed(context, Routes.loginRoute);
@@ -101,8 +110,9 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 SizedBox(height: 1.vs),
 
                 textspan(
-                  text1: AppStrings.dontHaveAnAccount,
-                  text2: AppStrings.signUp,
+                  text1: LocaleKeys.dontHaveAnAccount
+                      .tr(), //AppStrings.dontHaveAnAccount,
+                  text2: LocaleKeys.signUp.tr(), //AppStrings.signUp,
                   onTap: () => Navigator.pushReplacementNamed(
                       context, Routes.signUp1Route),
                 ),
