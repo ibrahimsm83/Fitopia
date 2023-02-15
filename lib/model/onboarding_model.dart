@@ -120,8 +120,10 @@ List<onboardingImageTitle> OnboardingImgTitle = [
       ImageAssets.onboarding3, LocaleKeys.Howactiveareyou.tr()),
   onboardingImageTitle(
       ImageAssets.onboarding4, LocaleKeys.WhatGenderdoYouidentityAs.tr()),
-        onboardingImageTitle(
+  onboardingImageTitle(
       ImageAssets.onboarding3, LocaleKeys.doyouwanttofemaleSpecificplan.tr()),
-        onboardingImageTitle(
-      ImageAssets.onboarding3, LocaleKeys.howOldAreYou.tr()),
+  onboardingImageTitle(ImageAssets.onboarding3, LocaleKeys.howOldAreYou.tr()),
+  onboardingImageTitle(ImageAssets.onboarding3, LocaleKeys.Wheredoyoulive.tr()),
+  onboardingImageTitle(
+      ImageAssets.onboarding3, LocaleKeys.howmuchdoyouweight.tr()),
 ];

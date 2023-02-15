@@ -5,10 +5,14 @@ import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/multiselect_widget.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
+import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:numberpicker/numberpicker.dart';
+// import 'package:horizontal_card_pager/horizontal_card_pager.dart';
+// import 'package:horizontal_card_pager/card_item.dart';
 
 class Onboarding1View extends StatefulWidget {
   const Onboarding1View({super.key});
@@ -22,25 +26,28 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
 
   int selectedIndex = 0;
   int currentPage = 0;
+  int _currentValue = 176;
 
-  List<bool> isStatusBarActive = [true, false, false, false, false, false];
-
+  List<bool> isStatusBarActive = [
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+  List<bool> _selections = List.generate(2, (_) => false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: ColorManager.whiteColor,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-
       body: SafeArea(
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
-            //SizedBox(height: 20.vs),
-            Align(
-                alignment: Alignment.topCenter,
-                //padding: EdgeInsets.only(top: 20),
-                child: statusBar()),
-            //SizedBox(height: AppSize.s28.vs),
+            Align(alignment: Alignment.topCenter, child: statusBar()),
             Padding(
               padding: const EdgeInsets.only(top: 50),
               child: SvgPicture.asset(
@@ -54,7 +61,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                 height: 180,
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(top: 300),
               child: Text(
@@ -69,13 +75,16 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                                 ? OnboardingImgTitle[3].title!
                                 : currentPage == 4
                                     ? OnboardingImgTitle[4].title!
-                                    : OnboardingImgTitle[5].title!,
+                                    : currentPage == 5
+                                        ? OnboardingImgTitle[5].title!
+                                        : currentPage == 6
+                                            ? OnboardingImgTitle[6].title!
+                                            : OnboardingImgTitle[7].title!,
                 style: getboldStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color!,
                     fontSize: AppSize.s20.mv),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(top: 350),
               child: SizedBox(
@@ -89,9 +98,12 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                                   ? onboarding4Widget(genderList)
                                   : currentPage == 4
                                       ? onboarding4Widget(maleSpecificPlanList)
-                                      : HowOldAreYou()),
+                                      : currentPage == 5
+                                          ? HowOldAreYou()
+                                          : currentPage == 6
+                                              ? whereDoYouLive()
+                                              : howMuchDoYouWeight()),
             ),
-
             Align(
               alignment: Alignment.bottomCenter,
               child: button(
@@ -115,6 +127,12 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                       } else if (currentPage == 4) {
                         currentPage = 5;
                         isStatusBarActive[5] = true;
+                      } else if (currentPage == 5) {
+                        currentPage = 6;
+                        isStatusBarActive[6] = true;
+                      } else if (currentPage == 6) {
+                        currentPage = 7;
+                        isStatusBarActive[7] = true;
                       } else {
                         currentPage = 0;
                         isStatusBarActive[0] = true;
@@ -123,6 +141,8 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         isStatusBarActive[3] = false;
                         isStatusBarActive[4] = false;
                         isStatusBarActive[5] = false;
+                        isStatusBarActive[6] = false;
+                        isStatusBarActive[7] = false;
                       }
                     });
                     // Navigator.pushReplacementNamed(
@@ -280,21 +300,35 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               ),
             ),
           ),
+          SizedBox(width: 10.0),
+          Flexible(
+            child: Container(
+              height: 10,
+              // width: 50,
+              decoration: BoxDecoration(
+                color: isStatusBarActive[6]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
+          SizedBox(width: 10.0),
+          Flexible(
+            child: Container(
+              height: 10,
+              // width: 50,
+              decoration: BoxDecoration(
+                color: isStatusBarActive[7]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
         ],
       ),
     );
-
-    // SizedBox(
-    //   height: 15,
-    //   child: ListView.separated(
-    //     separatorBuilder: (context, index) => SizedBox(width: 10.0),
-    //     scrollDirection: Axis.horizontal,
-    //     itemCount: 4,
-    //     itemBuilder: ((context, index) =>
-
-    //         ),
-    //   ),
-    // );
   }
 
   Widget onboarding4Widget(List<onBoradingModel>? itemList) {
@@ -311,17 +345,19 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
 
   Widget HowOldAreYou() {
     return Container(
-      //color: ColorManager.primary,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  //border: InputBorder,
-                  labelText: 'DD',
+              child: Container(
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'DD',
+                      filled: true,
+                      fillColor: ColorManager.greylightColor),
                 ),
               ),
             ),
@@ -331,9 +367,10 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 decoration: InputDecoration(
-                  //border: InputBorder.none,
-                  labelText: 'MM',
-                ),
+                    border: InputBorder.none,
+                    labelText: 'MM',
+                    filled: true,
+                    fillColor: ColorManager.greylightColor),
               ),
             ),
           ),
@@ -342,14 +379,82 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 decoration: InputDecoration(
-                  //border: InputBorder.none,
-                  labelText: 'YYYY',
-                ),
+                    border: InputBorder.none,
+                    labelText: 'YYYY',
+                    filled: true,
+                    fillColor: ColorManager.greylightColor),
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget whereDoYouLive() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        CustomeTextFormField(
+          hintText: LocaleKeys.City.tr(),
+          //AppStrings.enterYourEmail,
+          fillColor: ColorManager.greylightColor,
+          validator: (String? val) {
+            //   if (val == null || val.isEmpty) {
+            //     return AppStrings.enterYourEmail;
+            //   }
+            //   return null;
+          },
+        ),
+        SizedBox(height: 20),
+        CustomeTextFormField(
+          hintText: LocaleKeys.Country.tr(),
+          //AppStrings.enterYourEmail,
+          fillColor: ColorManager.greylightColor,
+          validator: (String? val) {
+            //   if (val == null || val.isEmpty) {
+            //     return AppStrings.enterYourEmail;
+            //   }
+            //   return null;
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget howMuchDoYouWeight() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        NumberPicker(
+          itemCount: 6,
+          value: _currentValue,
+          axis: Axis.horizontal,
+          minValue: 173,
+          maxValue: 178,
+          selectedTextStyle:
+              TextStyle(fontSize: 35, color: ColorManager.secondry),
+          onChanged: (value) => setState(() => _currentValue = value),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('Current value: $_currentValue'),
+        ),
+        SizedBox(height: 10.0),
+        ToggleButtons(
+          children: <Widget>[
+            // Icon(Icons.add_comment),
+            Text("LBS"), // Icon(Icons.airline_seat_individual_suite),
+            Text("KG"), //Icon(Icons.add_location),
+          ],
+          isSelected: _selections,
+          onPressed: (int index) {
+            setState(() {
+              _selections[index] = !_selections[index];
+            });
+          },
+        )
+      ],
     );
   }
 }
