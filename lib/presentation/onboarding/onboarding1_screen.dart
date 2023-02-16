@@ -5,6 +5,7 @@ import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/multiselect_widget.dart';
 import 'package:fitopia/presentation/resources/index_manager.dart';
 import 'package:fitopia/widgets/custome_button.dart';
+import 'package:fitopia/widgets/multiselection_checkbox.dart';
 import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:flutter/material.dart';
@@ -36,13 +37,16 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
     false,
     false,
     false,
+    false,
     false
   ];
   List<bool> _selections = List.generate(2, (_) => false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
           alignment: Alignment.topCenter,
@@ -79,7 +83,9 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                                         ? OnboardingImgTitle[5].title!
                                         : currentPage == 6
                                             ? OnboardingImgTitle[6].title!
-                                            : OnboardingImgTitle[7].title!,
+                                            : currentPage == 7
+                                                ? OnboardingImgTitle[7].title!
+                                                : OnboardingImgTitle[8].title!,
                 style: getboldStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color!,
                     fontSize: AppSize.s20.mv),
@@ -102,7 +108,9 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                                           ? HowOldAreYou()
                                           : currentPage == 6
                                               ? whereDoYouLive()
-                                              : howMuchDoYouWeight()),
+                                              : currentPage == 7
+                                                  ? howMuchDoYouWeight()
+                                                  : SimpleGroupCheckBoxed()),
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -133,6 +141,9 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                       } else if (currentPage == 6) {
                         currentPage = 7;
                         isStatusBarActive[7] = true;
+                      } else if (currentPage == 7) {
+                        currentPage = 8;
+                        isStatusBarActive[8] = true;
                       } else {
                         currentPage = 0;
                         isStatusBarActive[0] = true;
@@ -143,10 +154,9 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         isStatusBarActive[5] = false;
                         isStatusBarActive[6] = false;
                         isStatusBarActive[7] = false;
+                        isStatusBarActive[8] = false;
                       }
                     });
-                    // Navigator.pushReplacementNamed(
-                    //     context, Routes.Onboarding1Route);
                   }),
             ),
             SizedBox(height: AppSize.s28.vs),
@@ -223,12 +233,29 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Row(
-        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(
+        9,
+        (index) => Flexible(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Container(
+              height: 10,
+              decoration: BoxDecoration(
+                color: isStatusBarActive[index]
+                    ? ColorManager.primary
+                    : ColorManager.greyColor, //ColorManager.primary,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
+        ),
+      )
+
+          /* [
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: ColorManager.primary,
                 borderRadius: BorderRadius.circular(20.0),
@@ -239,7 +266,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[1]
                     ? ColorManager.primary
@@ -252,7 +278,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[2]
                     ? ColorManager.primary
@@ -265,7 +290,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[3]
                     ? ColorManager.primary
@@ -278,7 +302,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[4]
                     ? ColorManager.primary
@@ -291,7 +314,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[5]
                     ? ColorManager.primary
@@ -304,7 +326,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[6]
                     ? ColorManager.primary
@@ -317,7 +338,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           Flexible(
             child: Container(
               height: 10,
-              // width: 50,
               decoration: BoxDecoration(
                 color: isStatusBarActive[7]
                     ? ColorManager.primary
@@ -326,8 +346,8 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
               ),
             ),
           ),
-        ],
-      ),
+        ],*/
+          ),
     );
   }
 
@@ -432,20 +452,43 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
           axis: Axis.horizontal,
           minValue: 173,
           maxValue: 178,
-          selectedTextStyle:
-              TextStyle(fontSize: 35, color: ColorManager.secondry),
+          textStyle: getmediumStyle(
+              color: Theme.of(context).textTheme.bodyText1!.color!),
+          selectedTextStyle: TextStyle(
+              fontSize: 35,
+              color: ColorManager.secondry,
+              fontWeight: FontWeight.bold),
           onChanged: (value) => setState(() => _currentValue = value),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('Current value: $_currentValue'),
+          child: Text(
+            'Current Weight: $_currentValue',
+            style: getmediumStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color!),
+          ),
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 30.0),
         ToggleButtons(
+          borderRadius: BorderRadius.circular(30),
+          borderColor: Theme.of(context).textTheme.bodyText1!.color!,
+          //selectedColor: ColorManager.secondry,
+          fillColor: ColorManager.secondry,
+
+          textStyle:
+              TextStyle(color: Theme.of(context).textTheme.bodyText1!.color!),
           children: <Widget>[
             // Icon(Icons.add_comment),
-            Text("LBS"), // Icon(Icons.airline_seat_individual_suite),
-            Text("KG"), //Icon(Icons.add_location),
+            Text(
+              "LBS",
+              style: getmediumStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color!),
+            ), // Icon(Icons.airline_seat_individual_suite),
+            Text(
+              "KG",
+              style: getmediumStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color!),
+            ), //Icon(Icons.add_location),
           ],
           isSelected: _selections,
           onPressed: (int index) {
@@ -456,5 +499,31 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
         )
       ],
     );
+  }
+
+  Widget SimpleGroupCheckBoxed() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: ListView.separated(
+          separatorBuilder: (context, index) => Divider(),
+          itemCount: wheredidyouHearList!.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return MultiSelectionCheckBox(
+                item: wheredidyouHearList![index],
+                isSelected: (bool value) {
+                  setState(() {
+                    if (value) {
+                      selectedList?.add(wheredidyouHearList![index]);
+                    } else {
+                      selectedList?.remove(wheredidyouHearList![index]);
+                    }
+                  });
+                  // print("$index : $value");
+                },
+                key: Key(wheredidyouHearList![index].id.toString()));
+          }),
+    );
+    //Divider(),
   }
 }

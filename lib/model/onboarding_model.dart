@@ -33,6 +33,39 @@ List<onBoradingModel>? goalList = [
   ),
 ];
 
+///Goal list
+List<onBoradingModel>? wheredidyouHearList = [
+  onBoradingModel(
+    id: 0,
+    title: LocaleKeys.Inasocialmediaad.tr(), //AppStrings.loseWeight,
+  
+  ),
+  onBoradingModel(
+    id: 1,
+    title: LocaleKeys.Fromapersonifollow.tr(), //AppStrings.Leanbulk,
+   
+  ),
+  onBoradingModel(
+    id: 2,
+    title: LocaleKeys.FromMyfriend.tr(), //AppStrings.Gainweight,
+ 
+  ),
+  onBoradingModel(
+    id: 3,
+    title: LocaleKeys.OnTV.tr(), //AppStrings.Gainweight,
+ 
+  ),
+  onBoradingModel(
+    id: 4,
+    title: LocaleKeys.Ontheradio.tr(), //AppStrings.Gainweight,
+ 
+  ),
+  onBoradingModel(
+    id: 5,
+    title: LocaleKeys.Other.tr(), //AppStrings.Gainweight,
+  ),
+];
+
 ///Dietry Requirments
 List<onBoradingModel>? DietryRequirmentList = [
   onBoradingModel(
@@ -126,4 +159,6 @@ List<onboardingImageTitle> OnboardingImgTitle = [
   onboardingImageTitle(ImageAssets.onboarding3, LocaleKeys.Wheredoyoulive.tr()),
   onboardingImageTitle(
       ImageAssets.onboarding3, LocaleKeys.howmuchdoyouweight.tr()),
+  onboardingImageTitle(
+      ImageAssets.onboarding3, LocaleKeys.Wheredidyouhear.tr()),
 ];

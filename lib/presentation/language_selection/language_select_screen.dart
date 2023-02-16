@@ -94,16 +94,9 @@ class _LanguagePageState extends State<LanguagePage> {
               SizedBox(height: AppSize.s20.vs),
               Text(
                 LocaleKeys.welcomeToFitopia.tr(),
-                style:
-                    //appThemeData[value]?.textTheme.bodyText1,
-
-                    getboldStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color!,
-                        //  appThemeData[AppTheme.values[value]]!
-                        //     .secondaryHeaderColor,
-                        //appThemeData[AppTheme.values[value]]!
-
-                        fontSize: AppSize.s20.mv),
+                style: getboldStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color!,
+                    fontSize: AppSize.s20.mv),
               ),
               SizedBox(height: 20.0),
               Padding(

@@ -64,34 +64,6 @@ class _GridItemState extends State<GridItem> {
                       : ColorManager.blackColor),
             )),
       ),
-
-      /*Stack(
-        children: <Widget>[
-          Container(
-            //height: 100,
-            width: 100,
-            color:Colors.red,
-            // Colors.black.withOpacity(isSelected ? 0.9 : 0),
-          ),
-          // Image.asset(
-          //   widget.item.imageUrl,
-          //   color: Colors.black.withOpacity(isSelected ? 0.9 : 0),
-          //   colorBlendMode: BlendMode.color,
-          // ),
-          isSelected
-              ? Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.check_circle,
-                color: Colors.blue,
-              ),
-            ),
-          )
-              : Container()
-        ],
-      ),*/
     );
   }
 }

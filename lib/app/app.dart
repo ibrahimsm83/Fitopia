@@ -47,8 +47,8 @@ class _MyAppState extends State<MyApp> {
             // theme: ThemeData(
             //     primarySwatch: Colors.blue,
             //     unselectedWidgetColor: HexColor.fromHex("#D3D3D3")),
-            darkTheme: ThemeData.dark()
-                .copyWith(primaryColor: Color.fromARGB(255, 85, 56, 54)),
+            // darkTheme: ThemeData.dark()
+            //     .copyWith(primaryColor: Color.fromARGB(255, 85, 56, 54)),
             // ThemeData(
             //   fontFamily: FontConstants.fontFamily,
             //   primarySwatch: myappColor,
