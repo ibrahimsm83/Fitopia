@@ -9,7 +9,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../resources/index_manager.dart';
 
 class LoginView extends StatefulWidget {
@@ -94,8 +93,8 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 2.vs),
                 CustomeTextFormField(
-                  obscureText: true,
-                  hintText: LocaleKeys.enterYourPassword
+                 obscureText: true,
+                 hintText: LocaleKeys.enterYourPassword
                       .tr(), // AppStrings.enterYourPassword,
                   //fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
@@ -114,9 +113,6 @@ class _LoginViewState extends State<LoginView> {
                           context, Routes.Onboarding1Route);
                     }),
                 SizedBox(height: 1.vs),
-                // TermAndCondition(),
-                // SizedBox(height: 1.vs),
-                // SizedBox(height: 4.vs),
                 textspan(
                   text1: LocaleKeys.dontHaveAnAccount
                       .tr(), //AppStrings.dontHaveAnAccount,

@@ -2,10 +2,16 @@
 // flutter pub run easy_localization:generate -h
 //flutter pub run easy_localization:generate
 //flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o codegen_loader.g.dart
-
 //flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o locale_keys.g.dart -f keys
 
-
+/*
+LanguageCommands
+1:
+flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations"
+2:ksys generator
+flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o locale_keys.g.dart -f keys
+flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o codegen_loader.g.dart  
+ */
 
 
 // class AppStrings {

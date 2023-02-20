@@ -1,5 +1,8 @@
 import 'package:fitopia/presentation/resources/index_manager.dart';
-import 'package:flutter/material.dart';class AppThemes {
+import 'package:flutter/material.dart';
+
+
+class AppThemes {
   static final appThemeData = {
     AppTheme.lightTheme: ThemeData(
       scaffoldBackgroundColor: Colors.white,

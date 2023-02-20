@@ -104,5 +104,35 @@ abstract class  LocaleKeys {
   static const buildYourStrengthMuscles = 'buildYourStrengthMuscles';
   static const getLeanerImproveFitness = 'getLeanerImproveFitness';
   static const Vegetarian = 'Vegetarian';
+  static const Dashboard = 'Dashboard';
+  static const myPlans = 'myPlans';
+  static const Newsfeed = 'Newsfeed';
+  static const Stores = 'Stores';
+  static const More = 'More';
+  static const LowCarb = 'LowCarb';
+  static const Carbohydrates = 'Carbohydrates';
+  static const Sugar = 'Sugar';
+  static const Fiber = 'Fiber';
+  static const Products = 'Products';
+  static const PhysioStep = 'PhysioStep';
+  static const CardioStep = 'CardioStep';
+  static const CyclePlus = 'CyclePlus';
+  static const Last90days = 'Last90days';
+  static const Weight = 'Weight';
+  static const Active = 'Active';
+  static const Progress = 'Progress';
+  static const Premium = 'Premium';
+  static const PremiumFeatures = 'PremiumFeatures';
+  static const MyProfile = 'MyProfile';
+  static const MyPrograms = 'MyPrograms';
+  static const MyMealPlans = 'MyMealPlans';
+  static const RecipeList = 'RecipeList';
+  static const WorkoutRoutine = 'WorkoutRoutine';
+  static const Nutrition = 'Nutrition';
+  static const eBooks = 'eBooks';
+  static const Settings = 'Settings';
+  static const Chat = 'Chat';
+  static const Help = 'Help';
+  static const Logout = 'Logout';
 
 }

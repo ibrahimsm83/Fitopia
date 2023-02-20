@@ -27,4 +27,22 @@ class ImageAssets {
   // static const String splashBgDarkImage =
   //     "$IMAGE_PATH/splace_bg_dark_Image.png";
   //------------------Background Image-End--------------------------
+
+///Home
+///bottomNavBarIcons
+ static const String bellIcon = "$ICON_PATH/bellIcon.svg";
+ static const String moreIcon = "$ICON_PATH/moreIcon.svg";
+ static const String myPlanIcon = "$ICON_PATH/myPlanIcon.svg";
+ static const String storesIcon = "$ICON_PATH/storesIcon.svg";
+ static const String newsfeedIcon = "$ICON_PATH/newsfeedIcon.svg";
+ static const String deshboardIcon = "$ICON_PATH/dashboardIcon.svg";
+ static const String userCircleIcon = "$ICON_PATH/userCircleIcon.svg";
+
+ ///images
+   static const String productsImage1 = "$IMAGE_PATH/productImage1.png";
+   static const String productsImage2 = "$IMAGE_PATH/productImage2.png";
+   static const String productsImage3 = "$IMAGE_PATH/productImage3.png";
+
+
+
 }

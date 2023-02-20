@@ -9,11 +9,8 @@ import 'package:fitopia/widgets/multiselection_checkbox.dart';
 import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:numberpicker/numberpicker.dart';
-// import 'package:horizontal_card_pager/horizontal_card_pager.dart';
-// import 'package:horizontal_card_pager/card_item.dart';
 
 class Onboarding1View extends StatefulWidget {
   const Onboarding1View({super.key});
@@ -145,16 +142,19 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         currentPage = 8;
                         isStatusBarActive[8] = true;
                       } else {
-                        currentPage = 0;
-                        isStatusBarActive[0] = true;
-                        isStatusBarActive[1] = false;
-                        isStatusBarActive[2] = false;
-                        isStatusBarActive[3] = false;
-                        isStatusBarActive[4] = false;
-                        isStatusBarActive[5] = false;
-                        isStatusBarActive[6] = false;
-                        isStatusBarActive[7] = false;
-                        isStatusBarActive[8] = false;
+                        Navigator.pushReplacementNamed(
+                            context, Routes.HomePageRoute);
+                        //  currentPage = 0;
+                        // isStatusBarActive[0] = true;
+                        // isStatusBarActive[1] = false;
+                        // isStatusBarActive[2] = false;
+                        // isStatusBarActive[3] = false;
+                        // isStatusBarActive[4] = false;
+                        // isStatusBarActive[5] = false;
+                        // isStatusBarActive[6] = false;
+                        // isStatusBarActive[7] = false;
+                        // isStatusBarActive[8] = false;
+
                       }
                     });
                   }),
