@@ -37,10 +37,10 @@ class _HomeViewState extends State<HomeView> {
         },
         children: <Widget>[
           DashboardView(),
-          Container(child: Text("My plan")),
-          Container(child: Text("NewsFeed")),
-          Container(child: Text("Stores")),
-          Container(child: Text("More")),
+          Container(child: Center(child: Text("Coming soon"))),
+          Container(child: Center(child: Text("Coming soon"))),
+          Container(child: Center(child: Text("Coming soon"))),
+          Container(child: Center(child: Text("Coming soon"))),
           // DeshboardView(),
           // StreamsView(),
           // MessagesView(),
@@ -51,8 +51,8 @@ class _HomeViewState extends State<HomeView> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
-        backgroundColor: ColorManager.secondry,
-        selectedItemColor: ColorManager.primary,
+        backgroundColor: ColorManager.greyBoxColor,
+        selectedItemColor: ColorManager.secondry,
         showUnselectedLabels: true,
         selectedFontSize: 0.0,
         onTap: (value) {
@@ -65,13 +65,11 @@ class _HomeViewState extends State<HomeView> {
               IconName: ImageAssets.deshboardIcon,
               currentindex: 0),
           bottomNavbaritem(
-              title: LocaleKeys.myPlans.tr(),
-              IconName: ImageAssets.myPlanIcon,
+              title: "Analytics", //LocaleKeys.myPlans.tr(),
+              IconName: ImageAssets.AnalyticsIcon,
               currentindex: 1),
           bottomNavbaritem(
-              title: LocaleKeys.Newsfeed.tr(),
-              IconName: ImageAssets.newsfeedIcon,
-              currentindex: 2),
+              title: "", IconName: ImageAssets.infinityIcon, currentindex: 2),
           bottomNavbaritem(
               title: LocaleKeys.Stores.tr(),
               IconName: ImageAssets.storesIcon,
@@ -96,8 +94,8 @@ class _HomeViewState extends State<HomeView> {
             SvgPicture.asset(
               IconName!,
               color: currentindex == _currentIndex
-                  ? ColorManager.primary
-                  : ColorManager.whiteColor,
+                  ? ColorManager.secondry
+                  : ColorManager.darkGreyColor,
             ),
             SizedBox(height: 5.0),
             Text(
@@ -105,8 +103,8 @@ class _HomeViewState extends State<HomeView> {
               style: TextStyle(
                 fontSize: 10.mv,
                 color: currentindex == _currentIndex
-                    ? ColorManager.primary
-                    : ColorManager.whiteColor,
+                    ? ColorManager.secondry
+                    : ColorManager.darkGreyColor,
               ),
             )
           ],
