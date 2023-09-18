@@ -1,5 +1,4 @@
 import 'package:fitopia/presentation/resources/assets_manager.dart';
-import 'package:flutter/scheduler.dart';
 
 class weekDaysModel {
   int? id;

@@ -58,6 +58,11 @@ class ImageAssets {
  static const String BaseGoalIcon = "$ICON_PATH/BaseGoal.svg";
  static const String ExerciseIcon = "$ICON_PATH/Exercise.svg";
 
+ ///Analytics
+   static const String myProgressImg1 = "$IMAGE_PATH/myProgressImg1.png";
+   static const String myProgressImg2 = "$IMAGE_PATH/myProgressImg2.png";
+   static const String myProgressImg3 = "$IMAGE_PATH/myProgressImg3.png";
+
 
 
 }

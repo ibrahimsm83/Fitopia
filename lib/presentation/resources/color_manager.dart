@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorManager {
   static Color primary = HexColor.fromHex("#FE4E2D");
   static Color secondry = HexColor.fromHex("#2C47F8");
+  static Color secondryTwo = HexColor.fromHex("#8154FF");
   static Color graphLineColor = HexColor.fromHex("#332589");
   static Color greyBorderColor = HexColor.fromHex("#C5C5C5");
   static Color greyBoxColor = HexColor.fromHex("#F5F5F5");

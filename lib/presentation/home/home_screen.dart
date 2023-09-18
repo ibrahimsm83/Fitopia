@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
+import 'package:fitopia/presentation/home/analytics_screen.dart';
 import 'package:fitopia/presentation/home/dashboard_screen.dart';
 import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,8 @@ class _HomeViewState extends State<HomeView> {
         },
         children: <Widget>[
           DashboardView(),
-          Container(child: Center(child: Text("Coming soon"))),
+          AnalyticsView(),
+          //Container(child: Center(child: Text("Coming soon"))),
           Container(child: Center(child: Text("Coming soon"))),
           Container(child: Center(child: Text("Coming soon"))),
           Container(child: Center(child: Text("Coming soon"))),
