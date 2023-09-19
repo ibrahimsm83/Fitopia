@@ -1,4 +1,3 @@
-
 // flutter pub run easy_localization:generate -h
 //flutter pub run easy_localization:generate
 //flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o codegen_loader.g.dart
@@ -13,8 +12,11 @@ flutter pub run easy_localization:generate -S "assets/translations" -O "lib/tran
 flutter pub run easy_localization:generate -S "assets/translations" -O "lib/translations" -o codegen_loader.g.dart  
  */
 
+class AppStrings {
+  static const String loremipsum3lines =
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore";
 
-// class AppStrings {
+}
 //   ///Login
 //   static const String login = "LGOIN";
 //   static const String signUp = "Sign Up";
