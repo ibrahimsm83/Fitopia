@@ -52,7 +52,7 @@ class _AnalyticsViewState extends State<AnalyticsView> {
                   children: [
                     Text("Weight",
                         style: getboldStyle(
-                            color: ColorManager.secondryTwo,fontSize: 10.mv)),
+                            color: ColorManager.secondryTwo, fontSize: 10.mv)),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Container(

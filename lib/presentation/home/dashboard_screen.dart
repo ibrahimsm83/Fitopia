@@ -1,14 +1,11 @@
-import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitopia/model/deshboard_model.dart';
-import 'package:fitopia/model/products_model.dart';
 import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:fitopia/widgets/line_cahrt_sample7.dart';
 import 'package:fitopia/widgets/products_card_widgets.dart';
-import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:fitopia/widgets/week_days_list.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -31,6 +28,42 @@ class _DashboardViewState extends State<DashboardView> {
     return SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       SizedBox(height: 30.vs),
+
+      // AnimatedContainer(
+      //   width: double.infinity,
+      //   height: 56.0, //double.maxFinite,
+      //   duration: Duration(
+      //       milliseconds:
+      //           1500), //animationDuration,// Duration(milliseconds: 1500);
+      //   child: SizedBox(
+      //     width: 48.0, //itemWidth
+      //     height: 48.0 - 20, //itemHeight,
+      //     child: Stack(
+      //       clipBehavior: Clip.none,
+      //       children: <Widget>[
+      //         Positioned(
+      //           top: -20, // double topOffset = isSelected ? -20 : -10;
+      //           left: -48.0 / 2,
+      //           right: -48.0 / 2,
+      //           child: Column(
+      //             crossAxisAlignment: CrossAxisAlignment.center,
+      //             children: <Widget>[
+      //               SizedBox(
+      //                   height:
+      //                       0), //double iconTopSpacer = isSelected ? 0 : 2; //double shadowTopSpacer = 4;
+
+      //               _makeIconArea(48.0, Icons.close), // iconAreaWidget,
+      //               //labelWidget,
+      //               // SizedBox(height: shadowTopSpacer),
+      //               //shadowWidget,
+      //             ],
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+
       UserNotification(),
       //SizedBox(height: 15.0),
       linegraph(),
@@ -97,6 +130,33 @@ class _DashboardViewState extends State<DashboardView> {
 
       SizedBox(height: 30.0),
     ]));
+  }
+
+  Widget _makeIconArea(double itemWidth, IconData iconData) {
+    bool isSelected = true; //_isItemSelected();
+    double radius = itemWidth / 2;
+    double innerBoxSize = itemWidth - 8;
+    double innerRadius = (itemWidth - 8) / 2 - 4;
+
+    return CircleAvatar(
+      radius: isSelected ? radius : radius * 0.7,
+      backgroundColor: Colors.black, //_getBorderColor(isSelected),
+      child: SizedBox(
+        width: innerBoxSize,
+        height: isSelected ? innerBoxSize : innerBoxSize / 2,
+        child: CircleAvatar(
+          radius: innerRadius,
+          backgroundColor: Colors.red,
+          //  isSelected
+          //     ? selectedBackgroundColor ?? theme.selectedItemBackgroundColor
+          //     : theme.unselectedItemBackgroundColor,
+          child: Icon(
+            iconData,
+            color: Colors.green,
+          ), //_makeIcon(iconData),
+        ),
+      ),
+    );
   }
 
   Widget todayWorkout() {

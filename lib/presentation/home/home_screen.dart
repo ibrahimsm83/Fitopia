@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
 import 'package:fitopia/presentation/home/analytics_screen.dart';
 import 'package:fitopia/presentation/home/dashboard_screen.dart';
-import 'package:fitopia/presentation/home/more_screen.dart';
-import 'package:fitopia/presentation/home/stores_screen.dart';
+import 'package:fitopia/presentation/home/more_view.dart';
+import 'package:fitopia/presentation/home/stories_view.dart';
+import 'package:fitopia/presentation/home/NewsFeedsView.dart';
 import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -43,10 +45,11 @@ class _HomeViewState extends State<HomeView> {
           AnalyticsView(),
 
           //Container(child: Center(child: Text("Coming soon"))),
-          Container(child: Center(child: Text("Coming soon"))),
           // Container(child: Center(child: Text("Coming soon"))),
+          NewsFeedsView(),
           StoresView1(),
-          StoresView(),
+          MoreView(),
+          //Container(child: Center(child: Text("Coming soon"))),
           //Container(child: Center(child: Text("Coming soon"))),
           // DeshboardView(),
           // StreamsView(),
@@ -55,6 +58,47 @@ class _HomeViewState extends State<HomeView> {
           // ProfileView(),
         ],
       ),
+      /* bottomNavigationBar: FFNavigationBar(
+        theme: FFNavigationBarTheme(
+          showSelectedItemShadow: true,
+          barBackgroundColor: Colors.grey.shade300,
+          selectedItemBorderColor: Colors.grey.shade300,
+          selectedItemBackgroundColor: Colors.green,
+          selectedItemIconColor: Colors.white,
+          selectedItemLabelColor: Colors.black,
+        ),
+        selectedIndex: _currentIndex,
+        onSelectTab: (index) {
+          // setState(() {
+          _currentIndex = index;
+          //});
+        },
+        items: [
+          FFNavigationBarItem(
+            iconData: Icons.calendar_today,
+            label: 'Schedule',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.people,
+            label: 'Contacts',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.attach_money,
+            label: 'Bills',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.note,
+            label: 'Notes',
+          ),
+          FFNavigationBarItem(
+            iconData: Icons.settings,
+            label: 'Settings',
+          ),
+        ],
+      ),
+    );
+    */
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,

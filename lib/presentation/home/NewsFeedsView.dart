@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../resources/index_manager.dart';
 
-class StoresView extends StatelessWidget {
-  const StoresView({super.key});
+class NewsFeedsView extends StatelessWidget {
+  const NewsFeedsView({super.key});
 
   @override
   Widget build(BuildContext context) {

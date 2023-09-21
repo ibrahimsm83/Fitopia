@@ -50,6 +50,8 @@ dependencies:
   # fl_chart: ^0.45.0
   fl_chart: ^0.63.0
   smooth_page_indicator: ^1.1.0
+  ff_navigation_bar_plus: ^0.1.5
+  proste_bezier_curve: ^2.0.2
  
 
 

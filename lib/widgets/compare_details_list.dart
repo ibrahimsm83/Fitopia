@@ -49,14 +49,13 @@ class CompareDetailsList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    
                     GestureDetector(
                       onTap: () {}, //onTapDelete,
                       child: Align(
                           alignment: Alignment.topRight,
                           child: Icon(
                             Icons.favorite,
-                            color: Colors.red,
+                            color: Colors.grey,
                           )),
                     ),
                   ],
@@ -119,17 +118,21 @@ class CompareDetailsList extends StatelessWidget {
                           style:
                               getRegularStyle(color: ColorManager.greyColor)),
                       SizedBox(height: 15),
-                      Container(
-                        width: AppSize.sizeWidth(context),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(15.0)),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              "Add to Cart",
-                              style: TextStyle(color: Colors.grey),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          width: AppSize.sizeWidth(context),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(15.0)),
+                          child: Center(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 4.0),
+                              child: Text(
+                                "Add to Cart",
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ),
                           ),
                         ),

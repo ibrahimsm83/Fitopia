@@ -84,4 +84,19 @@ class ImageAssets {
   static const String gymImage2 = "$IMAGE_PATH/gymImage2.png";
   static const String gymImage3 = "$IMAGE_PATH/gymImage3.png";
   static const String gymImage4 = "$IMAGE_PATH/gymImage4.png";
+
+  ///More Menue Drawer
+  static const String helpIcon = "$ICON_PATH/help.svg";
+  static const String crownIcon = "$IMAGE_PATH/Crown.png";
+  static const String chatIcon = "$ICON_PATH/chat.svg";
+  static const String ebookIcon = "$ICON_PATH/ebook.svg";
+  static const String logoutIcon = "$ICON_PATH/logout.svg";
+  static const String settingsIcon = "$ICON_PATH/settings.svg";
+  static const String nutritionIcon = "$ICON_PATH/nutrition.svg";
+  static const String myProfileIcon = "$ICON_PATH/myProfile.svg";
+  static const String myProgramsIcon = "$ICON_PATH/myPrograms.svg";
+  static const String receipeListIcon = "$ICON_PATH/receipeList.svg";
+  static const String myMealPlansIcon = "$ICON_PATH/myMealPlans.svg";
+  static const String workoutRoutineIcon = "$ICON_PATH/workoutRoutine.svg";
+  
 }

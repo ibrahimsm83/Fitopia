@@ -13,6 +13,18 @@ flutter pub run easy_localization:generate -S "assets/translations" -O "lib/tran
  */
 
 class AppStrings {
+  
+  static const String chat = "Chat";
+  static const String help = "Help";
+  static const String eBooks = "eBooks";
+  static const String logout = "Logout";
+  static const String settings = "Settings";
+  static const String nutrition = "Nutrition";
+  static const String myProfile = "My Profile";
+  static const String myPrograms = "My Programs";
+  static const String recipeList = "Recipe List";
+  static const String myMealPlans = "My Meal Plans";
+  static const String workoutRoutine = "Workout Routine";
   static const String loremipsum3lines =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore";
 

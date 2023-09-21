@@ -57,7 +57,7 @@ class _StoresView1State extends State<StoresView1> {
           dotIndicatorWidget(),
           SizedBox(height: 10.0),
           users(),
-          //gridView(),
+          gridView(),
         ],
       ),
     );
