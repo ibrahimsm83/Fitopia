@@ -19,7 +19,7 @@ class CompareDetailsList extends StatelessWidget {
       },
       child: Container(
         width: AppSize.sizeWidth(context) * 0.46,
-        margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 10.0),
+        margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 5.0),
         decoration: BoxDecoration(
             color: ColorManager.greyBoxColor,
             borderRadius: BorderRadius.circular(10.0)),

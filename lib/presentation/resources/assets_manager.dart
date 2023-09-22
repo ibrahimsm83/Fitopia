@@ -35,12 +35,17 @@ class ImageAssets {
   static const String moreIcon = "$ICON_PATH/moreIcon.svg";
   static const String AnalyticsIcon = "$ICON_PATH/Analytics.svg";
   static const String infinityIcon = "$ICON_PATH/infinity.svg";
+  static const String InfinityPngIcon = "$IMAGE_PATH/InfinityIcon.png";
   static const String StoresIcon = "$ICON_PATH/Stores.svg";
   static const String myPlanIcon = "$ICON_PATH/myPlanIcon.svg";
   static const String storesIcon = "$ICON_PATH/storesIcon.svg";
   static const String newsfeedIcon = "$ICON_PATH/newsfeedIcon.svg";
   static const String deshboardIcon = "$ICON_PATH/dashboardIcon.svg";
   static const String userCircleIcon = "$ICON_PATH/userCircleIcon.svg";
+  static const String timerIcon = "$ICON_PATH/timer.svg";
+  static const String barcodeIcon = "$ICON_PATH/barcode.svg";
+  static const String nutritionFabIcon = "$ICON_PATH/nutritionFab.svg";
+  static const String workoutIcon = "$ICON_PATH/workout.svg";
 
   ///images
   static const String productsImage1 = "$IMAGE_PATH/productImage1.png";
@@ -79,7 +84,6 @@ class ImageAssets {
   static const String userStoreImge4 = "$IMAGE_PATH/userStoreImge4.png";
   static const String userStoreImge5 = "$IMAGE_PATH/userStoreImge5.png";
 
-
   static const String gymImage1 = "$IMAGE_PATH/gymImage1.png";
   static const String gymImage2 = "$IMAGE_PATH/gymImage2.png";
   static const String gymImage3 = "$IMAGE_PATH/gymImage3.png";
@@ -98,5 +102,4 @@ class ImageAssets {
   static const String receipeListIcon = "$ICON_PATH/receipeList.svg";
   static const String myMealPlansIcon = "$ICON_PATH/myMealPlans.svg";
   static const String workoutRoutineIcon = "$ICON_PATH/workoutRoutine.svg";
-  
 }

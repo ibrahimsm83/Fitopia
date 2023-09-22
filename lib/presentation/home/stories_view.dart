@@ -50,45 +50,46 @@ class _StoresView1State extends State<StoresView1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 30.0),
-          talentShowcase(),
-          dotIndicatorWidget(),
-          SizedBox(height: 10.0),
-          users(),
-          gridView(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 30.0),
+            talentShowcase(),
+            dotIndicatorWidget(),
+            SizedBox(height: 10.0),
+            users(),
+            gridView(),
+          ],
+        ),
       ),
     );
   }
 
   Widget gridView() {
-    return Flexible(
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisExtent: 340,
-            crossAxisSpacing: 6,
-            mainAxisSpacing: 0),
-        // padding: EdgeInsets.symmetric(horizontal: 8.0),
-        shrinkWrap: true,
-        // scrollDirection: Axis.horizontal,
-        itemCount: gymImage.length,
-        itemBuilder: (context, index) {
-          return CompareDetailsList(
-            imagepath: gymImage[index],
-            onTapDetaislarea: () {},
-            //  Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => PropertyDetailsPg())),
-            onTapDelete: (() {
-              // setState(() {
-              //   cityImg.removeAt(index);
-              // });
-            }),
-          );
-        },
-      ),
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisExtent: 360,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 3),
+      // padding: EdgeInsets.symmetric(horizontal: 8.0),
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      // scrollDirection: Axis.horizontal,
+      itemCount: gymImage.length,
+      itemBuilder: (context, index) {
+        return CompareDetailsList(
+          imagepath: gymImage[index],
+          onTapDetaislarea: () {},
+          //  Navigator.push(context,
+          //     MaterialPageRoute(builder: (context) => PropertyDetailsPg())),
+          onTapDelete: (() {
+            // setState(() {
+            //   cityImg.removeAt(index);
+            // });
+          }),
+        );
+      },
     );
   }
 

@@ -1,4 +1,6 @@
+import 'package:circular_menu/circular_menu.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
 import 'package:fitopia/presentation/home/analytics_screen.dart';
@@ -10,6 +12,7 @@ import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../resources/index_manager.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -49,56 +52,37 @@ class _HomeViewState extends State<HomeView> {
           NewsFeedsView(),
           StoresView1(),
           MoreView(),
-          //Container(child: Center(child: Text("Coming soon"))),
-          //Container(child: Center(child: Text("Coming soon"))),
-          // DeshboardView(),
-          // StreamsView(),
-          // MessagesView(),
-          // NotificationView(),
-          // ProfileView(),
         ],
       ),
-      /* bottomNavigationBar: FFNavigationBar(
-        theme: FFNavigationBarTheme(
-          showSelectedItemShadow: true,
-          barBackgroundColor: Colors.grey.shade300,
-          selectedItemBorderColor: Colors.grey.shade300,
-          selectedItemBackgroundColor: Colors.green,
-          selectedItemIconColor: Colors.white,
-          selectedItemLabelColor: Colors.black,
-        ),
-        selectedIndex: _currentIndex,
-        onSelectTab: (index) {
-          // setState(() {
-          _currentIndex = index;
-          //});
-        },
-        items: [
-          FFNavigationBarItem(
-            iconData: Icons.calendar_today,
-            label: 'Schedule',
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FabCircularMenuPlus(
+          fabOpenColor: Colors.red,
+          fabCloseIcon: Icon(Icons.close, color: ColorManager.whiteColor),
+          fabCloseColor: ColorManager.greyBoxColor,
+          fabElevation: 0.0,
+          ringColor: Colors.black26,
+          ringDiameter: 400,
+          ringWidthLimitFactor: 0.2,
+          fabOpenIcon: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child:
+                Image.asset(ImageAssets.InfinityPngIcon, fit: BoxFit.contain),
           ),
-          FFNavigationBarItem(
-            iconData: Icons.people,
-            label: 'Contacts',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.attach_money,
-            label: 'Bills',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.note,
-            label: 'Notes',
-          ),
-          FFNavigationBarItem(
-            iconData: Icons.settings,
-            label: 'Settings',
-          ),
-        ],
-      ),
-    );
-    */
-
+          alignment: Alignment.bottomCenter,
+          children: <Widget>[
+            SizedBox(),
+            SizedBox(),
+            SizedBox(),
+            SizedBox(),
+            // circularMenueIcon(ImageAssets.workoutIcon, "Workout",
+            //     ColorManager.fabYellowColor),
+            // circularMenueIcon(ImageAssets.nutritionFabIcon, "Nutration",
+            //     ColorManager.fabPurpleColor),
+            // circularMenueIcon(
+            //     ImageAssets.barcodeIcon, "Barcode", ColorManager.fabgreenColor),
+            // circularMenueIcon(
+            //     ImageAssets.timerIcon, "Timer", ColorManager.fabBlueColor),
+          ]),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
@@ -119,8 +103,11 @@ class _HomeViewState extends State<HomeView> {
               title: "Analytics", //LocaleKeys.myPlans.tr(),
               IconName: ImageAssets.AnalyticsIcon,
               currentindex: 1),
-          bottomNavbaritem(
-              title: "", IconName: ImageAssets.infinityIcon, currentindex: 2),
+          // bottomNavbaritem(title: "", IconName: null, currentindex: 2),
+          BottomNavigationBarItem(
+            label: "",
+            icon: SizedBox(),
+          ),
           bottomNavbaritem(
               title: LocaleKeys.Stores.tr(),
               IconName: ImageAssets.storesIcon,
@@ -131,6 +118,25 @@ class _HomeViewState extends State<HomeView> {
               currentindex: 4),
         ],
       ),
+    );
+  }
+
+  Widget circularMenueIcon(String IconPath, String title, Color? color) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+                color: color ?? Colors.yellow, shape: BoxShape.circle),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SvgPicture.asset(IconPath, color: ColorManager.blackColor),
+            )),
+        SizedBox(height: 5.0),
+        Text(title, style: getmediumStyle(color: color ?? Colors.yellow))
+      ],
     );
   }
 
