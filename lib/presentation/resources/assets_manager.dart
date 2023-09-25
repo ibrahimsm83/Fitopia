@@ -11,6 +11,11 @@ class ImageAssets {
   static const String loginImage = "$ICON_PATH/loginImage.svg";
   static const String appPngLogo = "$ICON_PATH/appIconpng.png";
 
+
+
+  static const String arrowBack = "$ICON_PATH/arrowBack.svg";
+  static const String arrowForward = "$ICON_PATH/arrowForward.svg";
+
   ///Onboarding
   static const String onboarding1 = "$ICON_PATH/onboarding1.svg";
   static const String onboarding2 = "$ICON_PATH/onboarding2.svg";

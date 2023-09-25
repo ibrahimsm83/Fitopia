@@ -37,32 +37,44 @@ List<onBoradingModel>? goalList = [
 List<onBoradingModel>? wheredidyouHearList = [
   onBoradingModel(
     id: 0,
-    title: LocaleKeys.Inasocialmediaad.tr(), //AppStrings.loseWeight,
+    title:"Facebook", //LocaleKeys.Inasocialmediaad.tr(), //AppStrings.loseWeight,
   
   ),
   onBoradingModel(
     id: 1,
-    title: LocaleKeys.Fromapersonifollow.tr(), //AppStrings.Leanbulk,
+    title:" Instagram", //LocaleKeys.Fromapersonifollow.tr(), //AppStrings.Leanbulk,
    
   ),
   onBoradingModel(
     id: 2,
-    title: LocaleKeys.FromMyfriend.tr(), //AppStrings.Gainweight,
+    title: "Tiktok",//LocaleKeys.FromMyfriend.tr(), //AppStrings.Gainweight,
  
   ),
   onBoradingModel(
     id: 3,
-    title: LocaleKeys.OnTV.tr(), //AppStrings.Gainweight,
+    title: "Twitter",//LocaleKeys.OnTV.tr(), //AppStrings.Gainweight,
  
   ),
   onBoradingModel(
     id: 4,
-    title: LocaleKeys.Ontheradio.tr(), //AppStrings.Gainweight,
+    title:"Google",// LocaleKeys.Ontheradio.tr(), //AppStrings.Gainweight,
  
   ),
   onBoradingModel(
     id: 5,
-    title: LocaleKeys.Other.tr(), //AppStrings.Gainweight,
+    title: "Word of mouth",//LocaleKeys.Other.tr(), //AppStrings.Gainweight,
+  ),
+  onBoradingModel(
+    id: 6,
+    title: "TV",//LocaleKeys.Other.tr(), //AppStrings.Gainweight,
+  ),
+  onBoradingModel(
+    id: 7,
+    title: "Radio",//LocaleKeys.Other.tr(), //AppStrings.Gainweight,
+  ),
+  onBoradingModel(
+    id: 8,
+    title: "Other",//LocaleKeys.Other.tr(), //AppStrings.Gainweight,
   ),
 ];
 

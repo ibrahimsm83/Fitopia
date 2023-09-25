@@ -1,7 +1,7 @@
-import 'package:circular_menu/circular_menu.dart';
+
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
-import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
 import 'package:fitopia/presentation/Mixins/size.dart';
 import 'package:fitopia/presentation/home/analytics_screen.dart';
 import 'package:fitopia/presentation/home/dashboard_screen.dart';
@@ -12,7 +12,6 @@ import 'package:fitopia/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../resources/index_manager.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -24,6 +23,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   late PageController _pagecontroller;
   var _currentIndex = 0;
+  bool isRingOpen = false;
   @override
   void initState() {
     _pagecontroller = PageController(initialPage: _currentIndex);
@@ -34,24 +34,33 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: PageView(
-        scrollDirection: Axis.horizontal,
-        physics: NeverScrollableScrollPhysics(),
-        controller: _pagecontroller,
-        onPageChanged: (val) {
-          setState(() {
-            _currentIndex = val;
-          });
-        },
-        children: <Widget>[
-          DashboardView(),
-          AnalyticsView(),
-
-          //Container(child: Center(child: Text("Coming soon"))),
-          // Container(child: Center(child: Text("Coming soon"))),
-          NewsFeedsView(),
-          StoresView1(),
-          MoreView(),
+      body: Stack(
+        children: [
+          PageView(
+            scrollDirection: Axis.horizontal,
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pagecontroller,
+            onPageChanged: (val) {
+              setState(() {
+                _currentIndex = val;
+              });
+            },
+            children: <Widget>[
+              DashboardView(),
+              AnalyticsView(),
+              NewsFeedsView(),
+              StoresView1(),
+              MoreView(),
+            ],
+          ),
+          Visibility(
+            visible: isRingOpen,
+            child: Container(
+              height: AppSize.sizeHeight(context),
+              width: AppSize.sizeWidth(context),
+              color: Colors.black54,
+            ),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -60,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
           fabCloseIcon: Icon(Icons.close, color: ColorManager.whiteColor),
           fabCloseColor: ColorManager.greyBoxColor,
           fabElevation: 0.0,
-          ringColor: Colors.black26,
+          ringColor: Colors.transparent,
           ringDiameter: 400,
           ringWidthLimitFactor: 0.2,
           fabOpenIcon: Padding(
@@ -69,19 +78,20 @@ class _HomeViewState extends State<HomeView> {
                 Image.asset(ImageAssets.InfinityPngIcon, fit: BoxFit.contain),
           ),
           alignment: Alignment.bottomCenter,
+          onDisplayChange: (isOpen) {
+            setState(() {
+              isRingOpen = isOpen;
+            });
+          },
           children: <Widget>[
-            SizedBox(),
-            SizedBox(),
-            SizedBox(),
-            SizedBox(),
-            // circularMenueIcon(ImageAssets.workoutIcon, "Workout",
-            //     ColorManager.fabYellowColor),
-            // circularMenueIcon(ImageAssets.nutritionFabIcon, "Nutration",
-            //     ColorManager.fabPurpleColor),
-            // circularMenueIcon(
-            //     ImageAssets.barcodeIcon, "Barcode", ColorManager.fabgreenColor),
-            // circularMenueIcon(
-            //     ImageAssets.timerIcon, "Timer", ColorManager.fabBlueColor),
+            circularMenueIcon(ImageAssets.workoutIcon, "Workout",
+                ColorManager.fabYellowColor),
+            circularMenueIcon(ImageAssets.nutritionFabIcon, "Nutration",
+                ColorManager.fabPurpleColor),
+            circularMenueIcon(
+                ImageAssets.barcodeIcon, "Barcode", ColorManager.fabgreenColor),
+            circularMenueIcon(
+                ImageAssets.timerIcon, "Timer", ColorManager.fabBlueColor),
           ]),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

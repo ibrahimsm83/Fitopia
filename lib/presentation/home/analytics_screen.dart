@@ -220,8 +220,8 @@ class _AnalyticsViewState extends State<AnalyticsView> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Container(
         decoration: BoxDecoration(
-            color: ColorManager.whiteColor,
-            border: Border.all(color: Colors.grey),
+            color: ColorManager.greyBoxColor,
+            // border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(15.0)),
         child: Column(
           children: [

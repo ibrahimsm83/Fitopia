@@ -196,7 +196,7 @@ class _DashboardViewState extends State<DashboardView> {
         child: Container(
             decoration: BoxDecoration(
                 color: ColorManager.greyBoxColor,
-                border: Border.all(color: Colors.grey),
+                //  border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(15.0)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -243,8 +243,8 @@ class _DashboardViewState extends State<DashboardView> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
       child: Container(
         decoration: BoxDecoration(
-            color: ColorManager.whiteColor,
-            border: Border.all(color: Colors.grey),
+            color: ColorManager.greyBoxColor,
+            // border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(15.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -451,8 +451,8 @@ class _DashboardViewState extends State<DashboardView> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
       child: Container(
         decoration: BoxDecoration(
-            color: ColorManager.whiteColor,
-            border: Border.all(color: Colors.grey),
+            color: ColorManager.greyBoxColor,
+            // border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(15.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -633,7 +633,7 @@ class _DashboardViewState extends State<DashboardView> {
       child: Container(
         decoration: BoxDecoration(
             color: ColorManager.whiteColor,
-            border: Border.all(color: Colors.grey),
+            // border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(15.0)),
         child: Column(
           children: [
@@ -642,21 +642,16 @@ class _DashboardViewState extends State<DashboardView> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(ImageAssets.arrowBack),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 5.0),
-                        child: Text(LocaleKeys.Weight.tr(),
-                            style: getboldStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .color!,
-                                fontSize: 17.mv)),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 12.0),
-                        child: Text(LocaleKeys.Last90days.tr(),
+                        child: Text("Week View",
                             style: getRegularStyle(
                                 color: Theme.of(context)
                                     .textTheme
@@ -664,24 +659,23 @@ class _DashboardViewState extends State<DashboardView> {
                                     .color!,
                                 fontSize: 10.mv)),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0),
+                        child: Text(
+                          "Last 7 Days",
+                          style: getboldStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color!,
+                              fontSize: 14.mv),
+                        ),
+                      ),
                     ],
                   ),
                 ),
+               
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 8.0, 8.0, 0.0),
-                  child: InkWell(
-                      // onTap: onTapfiltericon,
-                      child: CircleAvatar(
-                    foregroundColor: ColorManager.greyColor,
-                    backgroundColor: ColorManager.greyBorderColor,
-                    radius: 10,
-                    child: Center(
-                        child: Icon(
-                      Icons.add,
-                      color: Colors.grey.shade800,
-                      size: 12,
-                    )),
-                  )),
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(ImageAssets.arrowForward),
                 ),
               ],
             ),

@@ -10,6 +10,7 @@ import 'package:fitopia/widgets/text_form_field.dart';
 import 'package:fitopia/widgets/toggle_buttons_vertical.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:info_popup/info_popup.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class Onboarding1View extends StatefulWidget {
@@ -98,9 +99,10 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                           : currentPage == 2
                               ? onboarding3Widget(HowActiveAreYouList)
                               : currentPage == 3
-                                  ? onboarding4Widget(genderList)
+                                  ? onboarding4Widget(genderList, true)
                                   : currentPage == 4
-                                      ? onboarding4Widget(maleSpecificPlanList)
+                                      ? onboarding4Widget(
+                                          maleSpecificPlanList, false)
                                       : currentPage == 5
                                           ? HowOldAreYou()
                                           : currentPage == 6
@@ -154,7 +156,6 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
                         // isStatusBarActive[6] = false;
                         // isStatusBarActive[7] = false;
                         // isStatusBarActive[8] = false;
-
                       }
                     });
                   }),
@@ -351,15 +352,58 @@ class _Onboarding1ViewState extends State<Onboarding1View> {
     );
   }
 
-  Widget onboarding4Widget(List<onBoradingModel>? itemList) {
-    return FixedTogglesButtonsList(
-      selected: selectedIndex,
-      callback: (int index) {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      name: itemList,
+  Widget onboarding4Widget(List<onBoradingModel>? itemList, bool? isInfoIcon) {
+    return Column(
+      children: [
+        FixedTogglesButtonsList(
+          selected: selectedIndex,
+          callback: (int index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          name: itemList,
+        ),
+        Visibility(
+          visible: isInfoIcon ?? false,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InfoPopupWidget(
+                    arrowTheme: InfoPopupArrowTheme(
+                      color: ColorManager.secondry,
+                      arrowDirection: ArrowDirection.down,
+                    ),
+                    contentTheme: InfoPopupContentTheme(
+                      infoContainerBackgroundColor: ColorManager.greyBoxColor,
+                      infoTextStyle:
+                          getRegularStyle(color: ColorManager.blackColor),
+                      contentPadding: const EdgeInsets.all(8),
+                      contentBorderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                      infoTextAlign: TextAlign.center,
+                    ),
+                    contentTitle:
+                        '''My gender identity is non-binary, transgender, or gender non-conforming. Which sex do I choose?
+Your metabolic equation is used to calculate your calorie requirements; there are different formulae for men and women depending on your sex. Choose your sex assigned at birth since it will most correctly reflect your metabolic rate if your gender identification and your sex given at birth are not the same and you have not started taking gender-affirming drugs. Ask your doctor what the best option for you might be if you have started taking gender-affirming drugs. If you have only recently started taking your meds, you may want to choose the sex that was assigned to you at birth and then update when you are further along in your medical transition. Your metabolism may be more in line with your gender identity after you've been taking your meds for more than a few months, especially as your muscle and fat mass begin to change.
+Please visit a physician for the best outcomes.''',
+                    child: Icon(
+                      Icons.info,
+                      color: ColorManager.primary,
+                    )),
+                SizedBox(width: 10.0),
+                Text(
+                  "Which one should I choose",
+                  style: getmediumStyle(
+                      color: Theme.of(context).textTheme.bodyText1!.color!),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 

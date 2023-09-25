@@ -25,10 +25,8 @@ class ProductCardWidget extends StatelessWidget {
       onTap: () {
         // Navigator.pushNamed(context, 'HouseDetails');
       },
-      child: Card(
-        //elevation: 2.5,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 5.0, bottom: 10.0, top: 5.0),
         child: Container(
           width: AppSize.sizeWidth(context),
           height: MediaQuery.of(context).size.height * 0.13,
