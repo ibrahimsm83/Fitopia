@@ -7,6 +7,7 @@ class FixedTogglesButtonsList extends StatelessWidget {
   final Function? callback;
   final List<onBoradingModel>? name;
 
+
   const FixedTogglesButtonsList(
       {Key? key, this.selected, this.callback, this.name})
       : super(key: key);

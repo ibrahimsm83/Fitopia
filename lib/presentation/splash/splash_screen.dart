@@ -19,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _goNext() {
     Navigator.pushReplacementNamed(context, Routes.introductionRoute);
+    // Navigator.pushReplacementNamed(context, Routes.subscriptionViewPageRoute);
   }
 
   @override

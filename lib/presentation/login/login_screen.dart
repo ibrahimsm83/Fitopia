@@ -93,8 +93,8 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 2.vs),
                 CustomeTextFormField(
-                 obscureText: true,
-                 hintText: LocaleKeys.enterYourPassword
+                  obscureText: true,
+                  hintText: LocaleKeys.enterYourPassword
                       .tr(), // AppStrings.enterYourPassword,
                   //fillColor: ColorManager.primarydarkColor,
                   validator: (String? val) {
@@ -109,8 +109,10 @@ class _LoginViewState extends State<LoginView> {
                     text: LocaleKeys.login.tr(), //AppStrings.login,
                     color: ColorManager.primary,
                     onTap: () {
+                    
                       Navigator.pushReplacementNamed(
-                          context, Routes.Onboarding1Route);
+                          context, Routes.subscriptionViewPageRoute);
+                     
                     }),
                 SizedBox(height: 1.vs),
                 textspan(
@@ -118,8 +120,8 @@ class _LoginViewState extends State<LoginView> {
                       .tr(), //AppStrings.dontHaveAnAccount,
                   text2: LocaleKeys.signUp.tr(), //AppStrings.signUp,
                   onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, Routes.signUp1Route);
+                    // Navigator.pushReplacementNamed(
+                    //     context, Routes.signUp1Route);
                   },
                   //  Navigator.pushReplacementNamed(
                   //     context, Routes.loginWithSocialMediaRoute),

@@ -168,7 +168,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     color: ColorManager.primary,
                     onTap: () {
                       Navigator.pushReplacementNamed(
-                          context, Routes.Onboarding1Route);
+                          context, Routes.loginRoute);
                     }),
                 /* Container(
                   height: 35,

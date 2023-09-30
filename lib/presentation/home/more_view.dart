@@ -49,7 +49,52 @@ class MoreView extends StatelessWidget {
               child: ListView.builder(
                   itemCount: moreList.length,
                   itemBuilder: (context, index) {
-                    return moreListTile(moreList[index]);
+                    return moreListTile(moreList[index], () {
+                      print(index);
+
+                      switch (index) {
+                        case 0:
+                          Navigator.pushNamed(
+                              context, Routes.myProfilePageRoute);
+                          break;
+                        case 1:
+                          Navigator.pushNamed(
+                              context, Routes.myProgramPageRoute);
+                          break;
+                        case 2:
+                          Navigator.pushNamed(
+                              context, Routes.myMealsPlansPageRoute);
+                          break;
+                        case 3:
+                          Navigator.pushNamed(context, Routes.receipePageRoute);
+                          break;
+                        case 4:
+                          Navigator.pushNamed(
+                              context, Routes.workoutRoutinePageRoute);
+                          break;
+                        case 5:
+                          Navigator.pushNamed(
+                              context, Routes.nutritionPageRoute);
+                          break;
+                        case 6:
+                          Navigator.pushNamed(context, Routes.ebookPageRoute);
+                          break;
+                        case 7:
+                          Navigator.pushNamed(
+                              context, Routes.SettingsPageRoute);
+                          break;
+                        case 8:
+                          Navigator.pushNamed(context, Routes.chatPageRoute);
+                          break;
+                        case 9:
+                          Navigator.pushNamed(context, Routes.helpPageRoute);
+                          break;
+                        // case 10:
+                        //   Navigator.pushNamed(context, Routes.logoutPageRoute);
+                        //  break;
+                        default:
+                      }
+                    });
                   }),
             ),
           )
@@ -106,21 +151,24 @@ class MoreView extends StatelessWidget {
     );
   }
 
-  Widget moreListTile(MoreModel? model) {
+  Widget moreListTile(MoreModel? model, Function()? onTap) {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, bottom: 8.0),
-      child: Row(
-        children: [
-          SvgPicture.asset(model!.iconPath!),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              model.title ?? "",
-              style: getRegularStyle(
-                  color: ColorManager.blackColor, fontSize: AppSize.s14.mv),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          children: [
+            SvgPicture.asset(model!.iconPath!),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                model.title ?? "",
+                style: getRegularStyle(
+                    color: ColorManager.blackColor, fontSize: AppSize.s14.mv),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

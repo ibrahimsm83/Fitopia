@@ -11,8 +11,6 @@ class ImageAssets {
   static const String loginImage = "$ICON_PATH/loginImage.svg";
   static const String appPngLogo = "$ICON_PATH/appIconpng.png";
 
-
-
   static const String arrowBack = "$ICON_PATH/arrowBack.svg";
   static const String arrowForward = "$ICON_PATH/arrowForward.svg";
 
@@ -21,6 +19,19 @@ class ImageAssets {
   static const String onboarding2 = "$ICON_PATH/onboarding2.svg";
   static const String onboarding3 = "$ICON_PATH/onboarding3.svg";
   static const String onboarding4 = "$ICON_PATH/onboarding5.svg";
+
+  //------------------Person Image----------------------------
+  static const String person1 = "$IMAGE_PATH/person1.jpg";
+  static const String person2 = "$IMAGE_PATH/person2.jpeg";
+  static const String person3 = "$IMAGE_PATH/person3.png";
+  static const String person4 = "$IMAGE_PATH/person4.jpg";
+  static const String person5 = "$IMAGE_PATH/person5.png";
+  static const String person6 = "$IMAGE_PATH/person6.jpeg";
+  static const String person7 = "$IMAGE_PATH/person7.jpg";
+  static const String person8 = "$IMAGE_PATH/person8.jpg";
+  static const String person9 = "$IMAGE_PATH/person9.jpg";
+  static const String person10 = "$IMAGE_PATH/person10.jpg";
+
 //images
   //------------------Background Image---------------------------
   static const String backgroundImage = "$IMAGE_PATH/backgroundImage.png";
@@ -107,4 +118,22 @@ class ImageAssets {
   static const String receipeListIcon = "$ICON_PATH/receipeList.svg";
   static const String myMealPlansIcon = "$ICON_PATH/myMealPlans.svg";
   static const String workoutRoutineIcon = "$ICON_PATH/workoutRoutine.svg";
+
+  ///InnerChat
+  static const String sendIcon = "$ICON_PATH/send.svg";
+  static const String videocallIcon = "$ICON_PATH/videocall.svg";
+  static const String audiocallIcon = "$ICON_PATH/audiocall.svg";
+  static const String smileIcon = "$ICON_PATH/smile.svg";
+  static const String chatAudioCallIcon = "$ICON_PATH/chatAudioCall.svg";
+  static const String chatcameraIcon = "$ICON_PATH/chatcamera.svg";
+  static const String chatsettingIcon = "$ICON_PATH/chatsetting.svg";
+  static const String chat2UserIcon = "$ICON_PATH/chatUser.svg";
+  static const String cameraIcon = "$ICON_PATH/camera.svg";
+
+
+  ///Subscription
+  static const String subscriptionImage = "$IMAGE_PATH/subscriptionPage.png";
+  static const String visacard2 = "$IMAGE_PATH/visacard2.png";
+  static const String visaName = "$ICON_PATH/visaName.svg";
+  //  static const String subscriptionImage = "$ICON_PATH/subscriptionPage.png";
 }
